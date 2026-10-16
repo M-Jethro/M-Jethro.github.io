@@ -58,31 +58,6 @@
       scrollbar-width: none;
     }
 
-    /* Ambient Cursor Glow Follower */
-    #cursor-follower {
-      pointer-events: none;
-      position: fixed;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0, 69, 38, 0.075) 0%, rgba(0, 69, 38, 0) 70%);
-      transform: translate(-50%, -50%);
-      z-index: 9998;
-      transition: width 0.3s, height 0.3s, opacity 0.3s;
-      display: none;
-    }
-    /* F1 Car Cursor Icon */
-    #cursor-f1 {
-      pointer-events: none;
-      position: fixed;
-      font-size: 22px;
-      z-index: 9999;
-      transform: translate(14px, 14px) rotate(-15deg);
-      transition: transform 0.15s ease-out;
-      display: none;
-      user-select: none;
-    }
-
     /* Smooth Scroll Reveal with Flair */
     .reveal-base {
       opacity: 0;
@@ -137,23 +112,15 @@
 </head>
 <body class="bg-[#fafbf9] text-slate-800 font-sans antialiased selection:bg-lacoste-800 selection:text-white flex flex-col min-h-screen">
 
-  <!-- ================= AMBIENT CURSOR & F1 POINTER ================= -->
-  <div id="cursor-follower"></div>
-  <div id="cursor-f1" title="Racing through Data &amp; Governance">&#127937;</div>
-
   <!-- ================= TOP NAVIGATION HEADER ================= -->
   <header class="sticky top-0 z-50 bg-[#fafbf9]/95 backdrop-blur-md border-b border-slate-200/80 transition-all">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
-      <!-- Brand & Clickable Avatar with Jethro's Photo -->
+      <!-- Brand & Static Avatar -->
       <div class="flex items-center gap-3.5 group">
-        <label title="Click to change avatar image" class="relative cursor-pointer w-11 h-11 rounded-full overflow-hidden bg-lacoste-800 text-white flex items-center justify-center font-display font-bold text-sm tracking-wider shadow-sm hover:ring-2 hover:ring-lacoste-500 transition-all">
-          <img id="header-avatar" src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/50cf03b7ad30895a3ef355637feee861bdf3f029/Jethro%20M.jpeg" alt="Jethro M" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-black/35 opacity-0 hover:opacity-100 flex items-center justify-center transition-opacity text-xs font-mono text-white">
-            &#128247;
-          </div>
-          <input type="file" accept="image/*" class="hidden" onchange="handlePhotoUpload(event)">
-        </label>
+        <div class="w-11 h-11 rounded-full overflow-hidden bg-lacoste-800 text-white flex items-center justify-center font-display font-bold text-sm tracking-wider shadow-sm ring-1 ring-slate-200">
+          <img src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/profile/IMG_0476.jpeg" alt="Jethro M" class="w-full h-full object-cover">
+        </div>
 
         <!-- Brand Name -->
         <a href="javascript:void(0)" onclick="navigateTo('home')" class="font-display font-black text-slate-900 text-xl tracking-tight hover:text-lacoste-800 transition-colors">
@@ -183,7 +150,7 @@
         </a>
 
         <!-- Tableau (Official Brand Plus Cluster Vector) -->
-        <a href="https://public.tableau.com" target="_blank" rel="noopener noreferrer" title="Tableau Public" class="p-2 rounded-xl bg-white hover:bg-orange-50 border border-slate-200 shadow-sm transition-all hover:scale-110 flex items-center justify-center">
+        <a href="https://public.tableau.com/app/profile/jethromuzi" target="_blank" rel="noopener noreferrer" title="Tableau Public" class="p-2 rounded-xl bg-white hover:bg-orange-50 border border-slate-200 shadow-sm transition-all hover:scale-110 flex items-center justify-center">
           <svg class="w-6 h-6" viewBox="0 0 24 24">
             <path fill="#EB762B" d="M11.16 1.7h1.68v4.24h-1.68z"/>
             <path fill="#EB762B" d="M11.16 18.06h1.68v4.24h-1.68z"/>
@@ -230,13 +197,13 @@
     <!-- ================= PAGE 1: HOME ================= -->
     <div id="page-home" class="page-view">
       
-      <!-- HERO: Airy, Increased Line Spacing, Strategic Highlights -->
+      <!-- HERO: Airy, Clean, No Quotation Marks -->
       <section class="py-16 md:py-24 bg-grid-pattern border-b border-slate-200/60 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             
-            <!-- Left Column: 3-Layered Headline & Split Manifesto -->
+            <!-- Left Column: 3-Layered Headline & Pure Text Manifesto -->
             <div class="lg:col-span-7 space-y-8 reveal-base reveal-left">
               
               <h1 class="font-display font-black tracking-tight leading-[1.32] text-4xl sm:text-5xl lg:text-6xl text-slate-900">
@@ -245,21 +212,21 @@
                 <span class="block text-lacoste-800">Data &amp; AI Governance</span>
               </h1>
 
-              <!-- Split Quotes Architecture -->
+              <!-- Clean Statements (No Quotation Marks) -->
               <div class="space-y-4">
                 
-                <!-- Primary Bold Quote (Large Focus) -->
+                <!-- Primary Statement -->
                 <div class="p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/90 shadow-sm relative reveal-base reveal-up">
                   <div class="absolute -left-1.5 top-6 bottom-6 w-1.5 bg-lacoste-800 rounded-full"></div>
                   <p class="text-lg sm:text-xl font-bold text-slate-900 leading-snug pl-3">
-                    &ldquo;Governance works when it's built into how data and AI systems are designed, not reviewed after the fact.&rdquo;
+                    Governance works when it's built into how data and AI systems are designed, not reviewed after the fact.
                   </p>
                 </div>
 
-                <!-- Secondary Underplaced Quote -->
+                <!-- Secondary Subordinate Statement -->
                 <div class="p-5 rounded-xl bg-slate-50 border border-slate-200/70 reveal-base reveal-up" style="transition-delay: 100ms;">
                   <p class="text-sm sm:text-base text-slate-600 font-medium leading-relaxed pl-2">
-                    &ldquo;As a certified AI Governance Professional (AIGP), with a Bachelor of Laws and hands-on Data, BI &amp; AI Solution experience, I bridge engineering and compliance.&rdquo;
+                    As a certified AI Governance Professional (AIGP), with a Bachelor of Laws and hands-on Data, BI &amp; AI Solution experience, I bridge engineering and compliance.
                   </p>
                 </div>
 
@@ -279,18 +246,12 @@
 
             </div>
 
-            <!-- Right Column: Clean Framed Photo Card with Jethro's Photo -->
+            <!-- Right Column: Framed Pure Portrait (No Filters, No Upload Button) -->
             <div class="lg:col-span-5 flex justify-center reveal-base reveal-right">
               <div class="lacoste-card-shadow max-w-[360px] w-full">
                 <div class="lacoste-card-inner p-4 sm:p-5 border border-slate-200/80 shadow-2xl">
-                  <div class="relative w-full aspect-[4/4.5] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-inner group">
-                    <img id="profile-img-home" src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/50cf03b7ad30895a3ef355637feee861bdf3f029/Jethro%20M.jpeg" alt="Jethro M" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
-                    
-                    <label class="absolute bottom-3 right-3 cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-lacoste-900 text-xs font-semibold shadow-md hover:bg-white hover:scale-105 transition-all">
-                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                      <span>Change Photo</span>
-                      <input type="file" accept="image/*" class="hidden" onchange="handlePhotoUpload(event)">
-                    </label>
+                  <div class="relative w-full aspect-[4/4.5] rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shadow-inner">
+                    <img src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/profile/good%20potrait.jpeg" alt="Jethro M Portrait" class="w-full h-full object-cover object-top">
                   </div>
                 </div>
               </div>
@@ -341,75 +302,31 @@
             </div>
           </div>
 
-          <!-- Top Row: 2 Big Highlight Projects (Ireland's Investment & NHS Activity) -->
+          <!-- Top Row: 2 Big Highlight Projects -->
           <div class="space-y-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
               
-              <!-- Spotlight 1: Ireland's Investment Economy -->
+              <!-- Spotlight 1: Ireland's Demographic & Investment Overview -->
               <a href="https://lnkd.in/p/eV4ccaWi" target="_blank" rel="noopener noreferrer" class="interactive-card group block bg-[#fafbf9] rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden reveal-base reveal-left">
-                <div class="h-64 sm:h-72 bg-slate-950 p-6 relative flex flex-col justify-between overflow-hidden">
-                  <div class="absolute inset-0 bg-gradient-to-tr from-slate-950 via-slate-900 to-lacoste-950 opacity-95 group-hover:scale-105 transition-transform duration-700"></div>
-                  
-                  <div class="relative z-10 flex items-center justify-between text-xs text-slate-300 font-mono">
-                    <span class="font-bold text-white tracking-wider">ECONOMIC ANALYTICS</span>
-                    <span class="text-emerald-400 font-bold flex items-center gap-1">VIEW PROJECT &nearr;</span>
-                  </div>
-
-                  <div class="relative z-10 grid grid-cols-3 gap-2.5 my-auto">
-                    <div class="bg-white/10 p-3 rounded-xl border border-white/10">
-                      <span class="block text-[10px] font-mono text-slate-400 uppercase">Capital Flows</span>
-                      <span class="text-base font-bold font-mono text-emerald-400">&euro; Multi-Billion</span>
-                    </div>
-                    <div class="bg-white/10 p-3 rounded-xl border border-white/10">
-                      <span class="block text-[10px] font-mono text-slate-400 uppercase">FDI Allocation</span>
-                      <span class="text-base font-bold font-mono text-cyan-300">Multi-Sector</span>
-                    </div>
-                    <div class="bg-white/10 p-3 rounded-xl border border-white/10">
-                      <span class="block text-[10px] font-mono text-slate-400 uppercase">Macro Trends</span>
-                      <span class="text-base font-bold font-mono text-amber-300">10-Yr Timeseries</span>
-                    </div>
-                  </div>
-
-                  <div class="relative z-10 bg-white/5 rounded-xl p-2.5 text-xs font-mono text-slate-300 flex items-center justify-between border border-white/10">
-                    <span>Ireland's National Economic Dataset</span>
-                    <span class="text-emerald-400 font-bold">&bull; Verified Publication</span>
+                <div class="h-64 sm:h-72 bg-slate-900 relative overflow-hidden">
+                  <img src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/profile/irl.jpeg" alt="Ireland Demographic and Investment Overview" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                    <span class="text-xs font-mono font-bold text-white bg-lacoste-800/90 backdrop-blur-sm px-3 py-1.5 rounded-lg">View on LinkedIn &nearr;</span>
                   </div>
                 </div>
                 <div class="p-6">
-                  <span class="text-xs font-mono uppercase font-bold text-lacoste-800 bg-lacoste-100 px-2.5 py-1 rounded">Macroeconomic Intelligence</span>
-                  <h3 class="font-display font-bold text-2xl text-slate-900 mt-2.5 group-hover:text-lacoste-800 transition-colors">Ireland's Investment Economy</h3>
-                  <p class="text-sm text-slate-600 mt-2 leading-relaxed">Comprehensive macroeconomic analytics and investment evaluation visualizing FDI capital allocation, sectoral growth trends, and regional employment impacts.</p>
+                  <span class="text-xs font-mono uppercase font-bold text-lacoste-800 bg-lacoste-100 px-2.5 py-1 rounded">Macroeconomic &amp; Demographics</span>
+                  <h3 class="font-display font-bold text-2xl text-slate-900 mt-2.5 group-hover:text-lacoste-800 transition-colors">Ireland's Demographic &amp; Investment Overview</h3>
+                  <p class="text-sm text-slate-600 mt-2 leading-relaxed">Comprehensive macroeconomic analytics and investment evaluation visualizing FDI capital allocation, sectoral growth trends, and demographic profiles.</p>
                 </div>
               </a>
 
               <!-- Spotlight 2: NHS Hospital Admitted Patient Care Activity -->
               <a href="https://public.tableau.com/views/NHSHospitalAdmittedPatientCareActivity_16608510824620/Dashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener noreferrer" class="interactive-card group block bg-[#fafbf9] rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden reveal-base reveal-right">
-                <div class="h-64 sm:h-72 bg-slate-950 p-6 relative flex flex-col justify-between overflow-hidden">
-                  <div class="absolute inset-0 bg-gradient-to-tr from-slate-950 via-slate-900 to-cyan-950 opacity-95 group-hover:scale-105 transition-transform duration-700"></div>
-                  
-                  <div class="relative z-10 flex items-center justify-between text-xs text-slate-300 font-mono">
-                    <span class="font-bold text-white tracking-wider">NHS HEALTHCARE ANALYTICS</span>
-                    <span class="text-cyan-400 font-bold flex items-center gap-1">TABLEAU PUBLIC &nearr;</span>
-                  </div>
-
-                  <div class="relative z-10 grid grid-cols-3 gap-2.5 my-auto">
-                    <div class="bg-white/10 p-3 rounded-xl border border-white/10">
-                      <span class="block text-[10px] font-mono text-slate-400 uppercase">Admissions</span>
-                      <span class="text-base font-bold font-mono text-cyan-300">19M+ Records</span>
-                    </div>
-                    <div class="bg-white/10 p-3 rounded-xl border border-white/10">
-                      <span class="block text-[10px] font-mono text-slate-400 uppercase">Bed Capacity</span>
-                      <span class="text-base font-bold font-mono text-emerald-400">92% Occupancy</span>
-                    </div>
-                    <div class="bg-white/10 p-3 rounded-xl border border-white/10">
-                      <span class="block text-[10px] font-mono text-slate-400 uppercase">Mean LOS</span>
-                      <span class="text-base font-bold font-mono text-amber-300">4.8 Days</span>
-                    </div>
-                  </div>
-
-                  <div class="relative z-10 bg-white/5 rounded-xl p-2.5 text-xs font-mono text-slate-300 flex items-center justify-between border border-white/10">
-                    <span>NHS Digital Activity Statistics</span>
-                    <span class="text-cyan-300 font-bold">&bull; Interactive Clinical Model</span>
+                <div class="h-64 sm:h-72 bg-slate-900 relative overflow-hidden">
+                  <img src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-04.png" alt="NHS Hospital Admitted Patient Care Activity" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                    <span class="text-xs font-mono font-bold text-white bg-[#EB762B]/90 backdrop-blur-sm px-3 py-1.5 rounded-lg">Open Tableau Public &nearr;</span>
                   </div>
                 </div>
                 <div class="p-6">
@@ -421,26 +338,15 @@
 
             </div>
 
-            <!-- Bottom Row: 3 Wide Lifecycle Cards (Card 3: HR Overview, Cards 4 & 5: Future Holders) -->
+            <!-- Bottom Row: 3 Wide Lifecycle Cards -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
               
               <!-- Spotlight 3: Human Resources Overview Dashboard -->
               <a href="https://public.tableau.com/views/HumanResourcesOverviewDashboard_17402217394040/FinalDashboard3?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener noreferrer" class="interactive-card group block bg-[#fafbf9] rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden reveal-base reveal-left">
-                <div class="h-44 bg-slate-950 p-4 relative flex flex-col justify-between overflow-hidden">
-                  <div class="absolute inset-0 bg-gradient-to-tr from-slate-950 to-emerald-950 opacity-95 group-hover:scale-105 transition-transform duration-700"></div>
-                  <div class="relative z-10 flex items-center justify-between text-xs text-slate-300 font-mono">
-                    <span>HR PEOPLE ANALYTICS</span>
-                    <span class="text-emerald-400 font-bold">OPEN &nearr;</span>
-                  </div>
-                  <div class="relative z-10 space-y-2 text-[10px] font-mono">
-                    <div class="h-8 bg-white/10 rounded px-2.5 flex items-center justify-between text-white">
-                      <span>Headcount &bull; Attrition Tracking</span>
-                      <span class="text-emerald-400 font-bold">Live Breakdown</span>
-                    </div>
-                    <div class="h-8 bg-white/10 rounded px-2.5 flex items-center justify-between text-white">
-                      <span>Departmental Demographics</span>
-                      <span class="text-cyan-300 font-bold">Tableau Model</span>
-                    </div>
+                <div class="h-44 bg-slate-900 relative overflow-hidden">
+                  <img src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/profile/Final%20Dashboard%20(3).png" alt="Human Resources Overview Dashboard" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3.5">
+                    <span class="text-[11px] font-mono font-bold text-white bg-emerald-700/90 px-2.5 py-1 rounded">Tableau &nearr;</span>
                   </div>
                 </div>
                 <div class="p-5">
@@ -450,56 +356,56 @@
                 </div>
               </a>
 
-              <!-- Container 4: Reserved Placement -->
-              <div class="interactive-card bg-[#fafbf9] rounded-2xl border-2 border-dashed border-slate-300 p-5 flex flex-col justify-between reveal-base reveal-up">
-                <div class="space-y-3">
-                  <div class="flex items-center justify-between">
-                    <span class="text-[10px] font-mono uppercase font-bold text-lacoste-800 bg-lacoste-50 px-2 py-0.5 rounded">Portfolio Project 04</span>
-                    <span class="text-xs text-slate-400 font-mono">Upcoming</span>
+              <!-- Spotlight 4: UK Property Sales 2023 -->
+              <a href="https://public.tableau.com/app/profile/jethromuzi/viz/UKPropertySales2023/Dashboard2" target="_blank" rel="noopener noreferrer" class="interactive-card group block bg-[#fafbf9] rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden reveal-base reveal-up">
+                <div class="h-44 bg-slate-900 relative overflow-hidden">
+                  <img src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/profile/Dashboard%202.png" alt="UK Property Sales 2023 Dashboard" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3.5">
+                    <span class="text-[11px] font-mono font-bold text-white bg-blue-700/90 px-2.5 py-1 rounded">Tableau &nearr;</span>
                   </div>
-                  <h3 class="font-display font-bold text-base text-slate-900">Enterprise Data Solution</h3>
-                  <p class="text-xs text-slate-600">Reserved project placement for end-to-end data pipeline &amp; dimensional modeling.</p>
                 </div>
-                <div class="h-28 bg-slate-100 rounded-xl border border-slate-200 flex items-center justify-center text-xs font-mono text-slate-400">
-                  Container 04 Details &amp; Visuals
+                <div class="p-5">
+                  <span class="text-[10px] font-mono uppercase font-bold text-lacoste-800 bg-lacoste-50 px-2 py-0.5 rounded">Real Estate &amp; Market Intelligence</span>
+                  <h3 class="font-display font-bold text-base text-slate-900 mt-2 group-hover:text-lacoste-800 transition-colors">UK Property Sales 2023 Analysis</h3>
+                  <p class="text-xs text-slate-600 mt-1">Comprehensive geospatial analysis of residential transaction values, property types, and regional pricing distributions across the UK.</p>
                 </div>
-              </div>
+              </a>
 
-              <!-- Container 5: Reserved Placement -->
-              <div class="interactive-card bg-[#fafbf9] rounded-2xl border-2 border-dashed border-slate-300 p-5 flex flex-col justify-between reveal-base reveal-right">
-                <div class="space-y-3">
-                  <div class="flex items-center justify-between">
-                    <span class="text-[10px] font-mono uppercase font-bold text-lacoste-800 bg-lacoste-50 px-2 py-0.5 rounded">Portfolio Project 05</span>
-                    <span class="text-xs text-slate-400 font-mono">Upcoming</span>
+              <!-- Spotlight 5: 2023 Monthly Sales vs Target -->
+              <a href="https://public.tableau.com/views/2023MonthlySalesVTarget/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener noreferrer" class="interactive-card group block bg-[#fafbf9] rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden reveal-base reveal-right">
+                <div class="h-44 bg-slate-900 relative overflow-hidden">
+                  <img src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/profile/sales%20v%20target.png" alt="Store Sales vs Target Dashboard" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3.5">
+                    <span class="text-[11px] font-mono font-bold text-white bg-amber-700/90 px-2.5 py-1 rounded">Tableau &nearr;</span>
                   </div>
-                  <h3 class="font-display font-bold text-base text-slate-900">AI Automation Workflow</h3>
-                  <p class="text-xs text-slate-600">Reserved project placement for low-code/pro-code automation integration.</p>
                 </div>
-                <div class="h-28 bg-slate-100 rounded-xl border border-slate-200 flex items-center justify-center text-xs font-mono text-slate-400">
-                  Container 05 Details &amp; Visuals
+                <div class="p-5">
+                  <span class="text-[10px] font-mono uppercase font-bold text-lacoste-800 bg-lacoste-50 px-2 py-0.5 rounded">Retail Commercial Analytics</span>
+                  <h3 class="font-display font-bold text-base text-slate-900 mt-2 group-hover:text-lacoste-800 transition-colors">Store Performance: Monthly Sales vs. Target</h3>
+                  <p class="text-xs text-slate-600 mt-1">Retail performance benchmarking comparing actual monthly store revenue pacing against executive sales targets.</p>
                 </div>
-              </div>
+              </a>
 
             </div>
           </div>
 
-          <!-- ================= EXCEL REPORTING SHOWCASE CARDS (DYNAMIC RATIO & LIGHTBOX) ================= -->
+          <!-- ================= EXCEL REPORTING SHOWCASE CARDS ================= -->
           <div class="mt-16 pt-16 border-t border-slate-200">
             <div class="mb-8 reveal-base reveal-up">
-              <span class="text-xs font-mono font-bold uppercase tracking-wider text-lacoste-800 block mb-1">Financial &amp; Operational Modeling</span>
-              <h3 class="font-display font-bold text-2xl text-slate-900">Excel Advanced Financial &amp; Operational Reporting</h3>
-              <p class="text-xs text-slate-500 font-mono mt-1">Click any report to inspect in full-screen high resolution</p>
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-lacoste-800 block mb-1">EXCEL &middot; DATA VISUALISATION</span>
+              <h3 class="font-display font-extrabold text-2xl text-slate-900">Turning Raw Data into Executive-Ready Excel Reports</h3>
+              <p class="text-xs text-slate-500 font-mono mt-1">Public datasets rebuilt in Excel as clear, decision-ready visuals. Click any report to view it full-size.</p>
             </div>
 
             <!-- Responsive 3-Column Layout: Natural Aspect Ratios -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
               
               <!-- Excel Card 1: dashboard-01.jpg -->
-              <div class="interactive-card bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden cursor-pointer group reveal-base reveal-left" onclick="openLightbox('https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-01.jpg', 'Financial Variance &amp; Operational KPI Model')">
+              <div class="interactive-card bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden cursor-pointer group reveal-base reveal-left" onclick="openLightbox('https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-01.jpg', 'Workforce Representation Pipeline')">
                 <div class="w-full bg-slate-100 border-b border-slate-200 overflow-hidden relative">
                   <img 
                     src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-01.jpg" 
-                    alt="Financial Variance &amp; Operational KPI Model" 
+                    alt="Workforce Representation Pipeline" 
                     class="w-full h-auto block object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                     loading="lazy"
                   />
@@ -511,17 +417,17 @@
                   </div>
                 </div>
                 <div class="p-5">
-                  <h4 class="font-display font-bold text-sm text-slate-900">Financial Variance &amp; Forecast Model</h4>
-                  <p class="text-xs text-slate-500 mt-1 font-mono">Automated dynamic reconciliation and forward quarterly projections.</p>
+                  <h4 class="font-display font-bold text-base text-slate-900">Workforce Representation Pipeline</h4>
+                  <p class="text-xs text-lacoste-700 font-mono font-medium mt-1">Stacked columns &middot; Custom palette &middot; Data labels</p>
                 </div>
               </div>
 
               <!-- Excel Card 2: dashboard-02.jpg -->
-              <div class="interactive-card bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden cursor-pointer group reveal-base reveal-up" onclick="openLightbox('https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-02.jpg', 'Operational Capacity &amp; Resource Planner')">
+              <div class="interactive-card bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden cursor-pointer group reveal-base reveal-up" onclick="openLightbox('https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-02.jpg', 'Tech M&amp;A Trends, 2019–2023')">
                 <div class="w-full bg-slate-100 border-b border-slate-200 overflow-hidden relative">
                   <img 
                     src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-02.jpg" 
-                    alt="Operational Capacity &amp; Resource Planner" 
+                    alt="Tech M&amp;A Trends, 2019–2023" 
                     class="w-full h-auto block object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                     loading="lazy"
                   />
@@ -533,17 +439,17 @@
                   </div>
                 </div>
                 <div class="p-5">
-                  <h4 class="font-display font-bold text-sm text-slate-900">Operational Capacity &amp; Resource Planner</h4>
-                  <p class="text-xs text-slate-500 mt-1 font-mono">Multi-department headcount and workload capacity planning matrix.</p>
+                  <h4 class="font-display font-bold text-base text-slate-900">Tech M&amp;A Trends, 2019–2023</h4>
+                  <p class="text-xs text-lacoste-700 font-mono font-medium mt-1">Multi-level axis &middot; Series formatting &middot; Legend design</p>
                 </div>
               </div>
 
               <!-- Excel Card 3: dashboard-03.jpg -->
-              <div class="interactive-card bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden cursor-pointer group reveal-base reveal-right" onclick="openLightbox('https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-03.jpg', 'Executive Metric Dashboard Template')">
+              <div class="interactive-card bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden cursor-pointer group reveal-base reveal-right" onclick="openLightbox('https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-03.jpg', 'Youngest Cities Ranking')">
                 <div class="w-full bg-slate-100 border-b border-slate-200 overflow-hidden relative">
                   <img 
                     src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-03.jpg" 
-                    alt="Executive Metric Dashboard Template" 
+                    alt="Youngest Cities Ranking" 
                     class="w-full h-auto block object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                     loading="lazy"
                   />
@@ -555,8 +461,8 @@
                   </div>
                 </div>
                 <div class="p-5">
-                  <h4 class="font-display font-bold text-sm text-slate-900">Executive Metric Dashboard Template</h4>
-                  <p class="text-xs text-slate-500 mt-1 font-mono">Executive KPI dashboard with dynamic slicing and index matching.</p>
+                  <h4 class="font-display font-bold text-base text-slate-900">Youngest Cities Ranking</h4>
+                  <p class="text-xs text-lacoste-700 font-mono font-medium mt-1">Conditional formatting &middot; Ranking &middot; Table design</p>
                 </div>
               </div>
 
@@ -566,7 +472,7 @@
         </div>
       </section>
 
-      <!-- ================= RECOMMENDATIONS CAROUSEL (PURE LACOSTE GREEN #004526) ================= -->
+      <!-- ================= RECOMMENDATIONS CAROUSEL (CLEAN COMPANY LOGOS & MEMOJIS) ================= -->
       <section class="py-20 bg-[#004526] text-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -590,25 +496,21 @@
           <!-- Carousel Scroll Track -->
           <div id="recommendations-track" class="flex gap-6 overflow-x-auto hide-scrollbar pb-4 pt-1 scroll-smooth">
             
-            <!-- Endorsement 1: Tanja Kosljar (Novartis) - Female Memoji -->
+            <!-- Endorsement 1: Tanja Kosljar (Novartis) -->
             <div class="interactive-card min-w-[340px] sm:min-w-[440px] max-w-[440px] flex-shrink-0 p-7 rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg flex flex-col justify-between reveal-base reveal-left">
               <div>
-                <div class="flex items-center justify-between mb-5">
-                  <div class="flex items-center gap-2.5 bg-white px-3 py-1.5 rounded-xl shadow-sm">
-                    <svg class="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
-                    <span class="font-display font-extrabold text-xs text-slate-900 tracking-wider">NOVARTIS</span>
+                <div class="flex items-center justify-start mb-6">
+                  <div class="h-9 px-3 bg-white rounded-xl shadow-sm flex items-center justify-center">
+                    <img src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/logos/novartis-logo.png" alt="Novartis" class="h-6 w-auto object-contain">
                   </div>
-                  <span class="text-[11px] font-mono text-emerald-300 bg-white/10 px-2.5 py-1 rounded font-semibold">DD&amp;IT Operations</span>
                 </div>
                 <p class="text-sm text-slate-100 leading-relaxed italic">
-                  &ldquo;Jethro stood out for his sharp analytical thinking, genuine curiosity, and ability to turn complex information into practical, decision-ready insights. What I valued most was his combination of ownership and humility.&rdquo;
+                  Jethro stood out for his sharp analytical thinking, genuine curiosity, and ability to turn complex information into practical, decision-ready insights. What I valued most was his combination of ownership and humility.
                 </p>
               </div>
               <div class="pt-5 mt-6 border-t border-white/15 flex items-center gap-3.5">
-                <div class="w-11 h-11 rounded-full bg-emerald-100 border-2 border-emerald-400 flex items-center justify-center text-xl shrink-0 shadow-sm">
-                  &#128105;&#8205;&#128188;
+                <div class="w-12 h-12 rounded-full overflow-hidden bg-emerald-100 border-2 border-emerald-400 flex items-center justify-center shrink-0 shadow-sm">
+                  <span class="text-2xl transform scale-125 select-none">&#128105;&#8205;&#128188;</span>
                 </div>
                 <div>
                   <h4 class="font-bold text-sm text-white">Tanja Kosljar</h4>
@@ -617,77 +519,67 @@
               </div>
             </div>
 
-            <!-- Endorsement 2: Rianna Gonzales (GWP) - Female Memoji -->
+            <!-- Endorsement 2: Rianna Gonzales (GWP) -->
             <div class="interactive-card min-w-[340px] sm:min-w-[440px] max-w-[440px] flex-shrink-0 p-7 rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg flex flex-col justify-between reveal-base reveal-up">
               <div>
-                <div class="flex items-center justify-between mb-5">
-                  <div class="flex items-center gap-2.5 bg-white px-3 py-1.5 rounded-xl shadow-sm">
-                    <svg class="w-5 h-5 text-cyan-600" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
-                    </svg>
-                    <span class="font-display font-extrabold text-xs text-slate-900 tracking-wider">GWP</span>
+                <div class="flex items-center justify-start mb-6">
+                  <div class="h-9 px-3 bg-white rounded-xl shadow-sm flex items-center justify-center">
+                    <img src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/logos/global-water-partnership-logo.svg" alt="Global Water Partnership" class="h-6 w-auto object-contain">
                   </div>
-                  <span class="text-[11px] font-mono text-cyan-200 bg-white/10 px-2.5 py-1 rounded font-semibold">Global Water Partnership</span>
                 </div>
                 <p class="text-sm text-slate-100 leading-relaxed italic">
-                  &ldquo;Jethro used his data analytics skills to enhance our operations, improving candidate selection and performance tracking. He is a talented professional, combining technical expertise with strong people skills.&rdquo;
+                  Jethro used his data analytics skills to enhance our operations, improving candidate selection and performance tracking. He is a talented professional, combining technical expertise with strong people skills.
                 </p>
               </div>
               <div class="pt-5 mt-6 border-t border-white/15 flex items-center gap-3.5">
-                <div class="w-11 h-11 rounded-full bg-cyan-100 border-2 border-cyan-400 flex items-center justify-center text-xl shrink-0 shadow-sm">
-                  &#128105;&#127995;&#8205;&#128188;
+                <div class="w-12 h-12 rounded-full overflow-hidden bg-cyan-100 border-2 border-cyan-400 flex items-center justify-center shrink-0 shadow-sm">
+                  <span class="text-2xl transform scale-125 select-none">&#128105;&#127995;&#8205;&#128188;</span>
                 </div>
                 <div>
                   <h4 class="font-bold text-sm text-white">Rianna Gonzales</h4>
-                  <p class="text-xs text-cyan-200">Water Resources Management Professional</p>
+                  <p class="text-xs text-cyan-200">Water Resources Management Professional, Global Water Partnership</p>
                 </div>
               </div>
             </div>
 
-            <!-- Endorsement 3: Colin Herron (GWP) - Male Memoji -->
+            <!-- Endorsement 3: Colin Herron (GWP) -->
             <div class="interactive-card min-w-[340px] sm:min-w-[440px] max-w-[440px] flex-shrink-0 p-7 rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg flex flex-col justify-between reveal-base reveal-right">
               <div>
-                <div class="flex items-center justify-between mb-5">
-                  <div class="flex items-center gap-2.5 bg-white px-3 py-1.5 rounded-xl shadow-sm">
-                    <svg class="w-5 h-5 text-cyan-600" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
-                    </svg>
-                    <span class="font-display font-extrabold text-xs text-slate-900 tracking-wider">GWP</span>
+                <div class="flex items-center justify-start mb-6">
+                  <div class="h-9 px-3 bg-white rounded-xl shadow-sm flex items-center justify-center">
+                    <img src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/logos/global-water-partnership-logo.svg" alt="Global Water Partnership" class="h-6 w-auto object-contain">
                   </div>
-                  <span class="text-[11px] font-mono text-cyan-200 bg-white/10 px-2.5 py-1 rounded font-semibold">Sustainable Development</span>
                 </div>
                 <p class="text-sm text-slate-100 leading-relaxed italic">
-                  &ldquo;Jethro is very level-headed, doesn't get easily flustered, listens well and reflects before giving his own perspective. He demonstrated huge potential for continued growth.&rdquo;
+                  Jethro is very level-headed, doesn't get easily flustered, listens well and reflects before giving his own perspective. He demonstrated huge potential for continued growth.
                 </p>
               </div>
               <div class="pt-5 mt-6 border-t border-white/15 flex items-center gap-3.5">
-                <div class="w-11 h-11 rounded-full bg-blue-100 border-2 border-blue-400 flex items-center justify-center text-xl shrink-0 shadow-sm">
-                  &#128104;&#127996;&#8205;&#128188;
+                <div class="w-12 h-12 rounded-full overflow-hidden bg-blue-100 border-2 border-blue-400 flex items-center justify-center shrink-0 shadow-sm">
+                  <span class="text-2xl transform scale-125 select-none">&#128104;&#127996;&#8205;&#128188;</span>
                 </div>
                 <div>
                   <h4 class="font-bold text-sm text-white">Colin Herron</h4>
-                  <p class="text-xs text-cyan-200">Senior Water &amp; Sustainable Development Expert</p>
+                  <p class="text-xs text-cyan-200">Senior Water &amp; Sustainable Development Expert, Global Water Partnership</p>
                 </div>
               </div>
             </div>
 
-            <!-- Endorsement 4: Esther Kalenzi (4040) - Female Memoji -->
+            <!-- Endorsement 4: Esther Kalenzi (4040) -->
             <div class="interactive-card min-w-[340px] sm:min-w-[440px] max-w-[440px] flex-shrink-0 p-7 rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg flex flex-col justify-between reveal-base reveal-up">
               <div>
-                <div class="flex items-center justify-between mb-5">
-                  <div class="flex items-center gap-2.5 bg-white px-3 py-1.5 rounded-xl shadow-sm">
-                    <span class="font-display font-black text-sm text-amber-600">4040</span>
-                    <span class="font-display font-extrabold text-xs text-slate-900 tracking-wider">FOUNDATION</span>
+                <div class="flex items-center justify-start mb-6">
+                  <div class="h-9 px-3 bg-white rounded-xl shadow-sm flex items-center justify-center">
+                    <img src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/logos/4040-foundation-logo.jpg" alt="4040 Foundation" class="h-6 w-auto object-contain">
                   </div>
-                  <span class="text-[11px] font-mono text-amber-300 bg-white/10 px-2.5 py-1 rounded font-semibold">Events &amp; Fundraising</span>
                 </div>
                 <p class="text-sm text-slate-100 leading-relaxed italic">
-                  &ldquo;His ability to collaborate effectively, pay attention to detail, and enhance audience participation made him a valuable member of our team during critical campaigns.&rdquo;
+                  His ability to collaborate effectively, pay attention to detail, and enhance audience participation made him a valuable member of our team during critical campaigns.
                 </p>
               </div>
               <div class="pt-5 mt-6 border-t border-white/15 flex items-center gap-3.5">
-                <div class="w-11 h-11 rounded-full bg-amber-100 border-2 border-amber-400 flex items-center justify-center text-xl shrink-0 shadow-sm">
-                  &#128105;&#127998;&#8205;&#128188;
+                <div class="w-12 h-12 rounded-full overflow-hidden bg-amber-100 border-2 border-amber-400 flex items-center justify-center shrink-0 shadow-sm">
+                  <span class="text-2xl transform scale-125 select-none">&#128105;&#127998;&#8205;&#128188;</span>
                 </div>
                 <div>
                   <h4 class="font-bold text-sm text-white">Esther Kalenzi</h4>
@@ -703,10 +595,10 @@
 
     </div>
 
-    <!-- ================= PAGE 2: DATA & BI ================= -->
+    <!-- ================= PAGE 2: DATA & BI (WITH HORIZONTAL SLIDESHOW) ================= -->
     <div id="page-data-bi" class="page-view hidden">
       <section class="py-16 md:py-20 bg-white border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
           
           <div class="p-6 rounded-3xl bg-slate-900 text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border border-slate-800 shadow-md reveal-base reveal-down">
             <div class="flex items-center gap-3">
@@ -728,6 +620,118 @@
             </p>
           </div>
 
+          <!-- ================= NEW: CONTINUOUS HORIZONTAL SHOWCASE FOR ALL DASHBOARDS & EXCEL ================= -->
+          <div class="space-y-4 reveal-base reveal-up">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-xs font-mono uppercase tracking-wider text-lacoste-800 font-bold block">Visual Gallery</span>
+                <h3 class="font-display font-bold text-xl text-slate-900">All BI &amp; Excel Reports</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="scrollSlide('bi-gallery-track', -1)" class="p-2 rounded-full border border-slate-200 hover:bg-slate-100 text-slate-600 transition-colors">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <button onclick="scrollSlide('bi-gallery-track', 1)" class="p-2 rounded-full border border-slate-200 hover:bg-slate-100 text-slate-600 transition-colors">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Horizontal Track -->
+            <div id="bi-gallery-track" class="flex gap-6 overflow-x-auto hide-scrollbar py-2 scroll-smooth">
+              
+              <!-- Slide 1 -->
+              <div class="interactive-card min-w-[320px] sm:min-w-[380px] max-w-[380px] flex-shrink-0 bg-[#fafbf9] rounded-2xl border border-slate-200 overflow-hidden shadow-sm cursor-pointer" onclick="openLightbox('https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/profile/irl.jpeg', 'Ireland Demographic &amp; Investment Overview')">
+                <div class="h-48 bg-slate-900 overflow-hidden">
+                  <img src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/profile/irl.jpeg" alt="Ireland Investment Overview" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-4">
+                  <h4 class="font-display font-bold text-sm text-slate-900">Ireland Demographic &amp; Investment Overview</h4>
+                  <p class="text-xs text-slate-500 font-mono mt-0.5">Macroeconomic timeseries and FDI flows</p>
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="interactive-card min-w-[320px] sm:min-w-[380px] max-w-[380px] flex-shrink-0 bg-[#fafbf9] rounded-2xl border border-slate-200 overflow-hidden shadow-sm cursor-pointer" onclick="openLightbox('https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-04.png', 'NHS Hospital Admitted Patient Care Activity')">
+                <div class="h-48 bg-slate-900 overflow-hidden">
+                  <img src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-04.png" alt="NHS Care Activity" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-4">
+                  <h4 class="font-display font-bold text-sm text-slate-900">NHS Hospital Admitted Patient Care</h4>
+                  <p class="text-xs text-slate-500 font-mono mt-0.5">Clinical specialty and bed occupancy</p>
+                </div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="interactive-card min-w-[320px] sm:min-w-[380px] max-w-[380px] flex-shrink-0 bg-[#fafbf9] rounded-2xl border border-slate-200 overflow-hidden shadow-sm cursor-pointer" onclick="openLightbox('https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/profile/Final%20Dashboard%20(3).png', 'Human Resources Overview Dashboard')">
+                <div class="h-48 bg-slate-900 overflow-hidden">
+                  <img src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/profile/Final%20Dashboard%20(3).png" alt="HR Overview Dashboard" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-4">
+                  <h4 class="font-display font-bold text-sm text-slate-900">Human Resources Overview Dashboard</h4>
+                  <p class="text-xs text-slate-500 font-mono mt-0.5">Workforce turnover and demographic breakdown</p>
+                </div>
+              </div>
+
+              <!-- Slide 4 -->
+              <div class="interactive-card min-w-[320px] sm:min-w-[380px] max-w-[380px] flex-shrink-0 bg-[#fafbf9] rounded-2xl border border-slate-200 overflow-hidden shadow-sm cursor-pointer" onclick="openLightbox('https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/profile/Dashboard%202.png', 'UK Property Sales 2023 Analysis')">
+                <div class="h-48 bg-slate-900 overflow-hidden">
+                  <img src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/profile/Dashboard%202.png" alt="UK Property Sales" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-4">
+                  <h4 class="font-display font-bold text-sm text-slate-900">UK Property Sales 2023 Analysis</h4>
+                  <p class="text-xs text-slate-500 font-mono mt-0.5">Geospatial price-paid registry analytics</p>
+                </div>
+              </div>
+
+              <!-- Slide 5 -->
+              <div class="interactive-card min-w-[320px] sm:min-w-[380px] max-w-[380px] flex-shrink-0 bg-[#fafbf9] rounded-2xl border border-slate-200 overflow-hidden shadow-sm cursor-pointer" onclick="openLightbox('https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/profile/sales%20v%20target.png', 'Store Performance: Monthly Sales vs Target')">
+                <div class="h-48 bg-slate-900 overflow-hidden">
+                  <img src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/profile/sales%20v%20target.png" alt="Sales vs Target" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-4">
+                  <h4 class="font-display font-bold text-sm text-slate-900">Store Performance: Sales vs. Target</h4>
+                  <p class="text-xs text-slate-500 font-mono mt-0.5">Monthly revenue pacing and variances</p>
+                </div>
+              </div>
+
+              <!-- Slide 6: Excel 1 -->
+              <div class="interactive-card min-w-[320px] sm:min-w-[380px] max-w-[380px] flex-shrink-0 bg-[#fafbf9] rounded-2xl border border-slate-200 overflow-hidden shadow-sm cursor-pointer" onclick="openLightbox('https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-01.jpg', 'Workforce Representation Pipeline')">
+                <div class="h-48 bg-slate-100 overflow-hidden">
+                  <img src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-01.jpg" alt="Excel Pipeline" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-4">
+                  <h4 class="font-display font-bold text-sm text-slate-900">Workforce Representation Pipeline</h4>
+                  <p class="text-xs text-slate-500 font-mono mt-0.5">Excel stacked columns and custom palettes</p>
+                </div>
+              </div>
+
+              <!-- Slide 7: Excel 2 -->
+              <div class="interactive-card min-w-[320px] sm:min-w-[380px] max-w-[380px] flex-shrink-0 bg-[#fafbf9] rounded-2xl border border-slate-200 overflow-hidden shadow-sm cursor-pointer" onclick="openLightbox('https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-02.jpg', 'Tech M&amp;A Trends, 2019–2023')">
+                <div class="h-48 bg-slate-100 overflow-hidden">
+                  <img src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-02.jpg" alt="Tech M&amp;A" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-4">
+                  <h4 class="font-display font-bold text-sm text-slate-900">Tech M&amp;A Trends, 2019–2023</h4>
+                  <p class="text-xs text-slate-500 font-mono mt-0.5">Multi-level axis and series formatting</p>
+                </div>
+              </div>
+
+              <!-- Slide 8: Excel 3 -->
+              <div class="interactive-card min-w-[320px] sm:min-w-[380px] max-w-[380px] flex-shrink-0 bg-[#fafbf9] rounded-2xl border border-slate-200 overflow-hidden shadow-sm cursor-pointer" onclick="openLightbox('https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-03.jpg', 'Youngest Cities Ranking')">
+                <div class="h-48 bg-slate-100 overflow-hidden">
+                  <img src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-03.jpg" alt="Youngest Cities" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-4">
+                  <h4 class="font-display font-bold text-sm text-slate-900">Youngest Cities Ranking</h4>
+                  <p class="text-xs text-slate-500 font-mono mt-0.5">Conditional formatting &amp; tabular ranking</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Systems & Tools for Data & BI -->
           <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200 shadow-sm reveal-base reveal-up">
             <h3 class="font-display font-bold text-lg text-slate-900 mb-4 flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-lacoste-800"></span>
@@ -767,82 +771,6 @@
                 <span class="text-slate-500">Version Control</span>
               </div>
             </div>
-          </div>
-
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            
-            <div class="interactive-card p-8 rounded-3xl bg-[#fafbf9] border border-slate-200/90 shadow-sm space-y-6 reveal-base reveal-left">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-mono font-bold uppercase text-lacoste-800 bg-lacoste-100 px-2.5 py-1 rounded">Enterprise Operations Tool</span>
-                <span class="text-xs text-slate-400 font-mono">Novartis Reference</span>
-              </div>
-              <div>
-                <h2 class="font-display font-bold text-2xl text-slate-900 mb-2">Portfolio KPI &amp; ITOT Operations Suite</h2>
-                <p class="text-sm text-slate-600 leading-relaxed">
-                  Engineered automated tools combining custom-coded applications, Power Platform solutions, and cross-platform Power Automate workflows to monitor, plan, and govern daily operations and project deviations across capabilities.
-                </p>
-              </div>
-
-              <div class="space-y-4 text-xs border-t border-slate-200 pt-5">
-                <div>
-                  <span class="font-mono font-bold text-slate-900 uppercase tracking-wider block mb-1">01. Business Problem</span>
-                  <p class="text-slate-600">Siloed project tracking, manual operational reporting overhead, and delayed visibility into capability deviations for leadership.</p>
-                </div>
-                <div>
-                  <span class="font-mono font-bold text-slate-900 uppercase tracking-wider block mb-1">02. Approach &amp; Architecture</span>
-                  <p class="text-slate-600">Constructed centralized reporting logic, multi-tier automated flows, and customized front-end views with monthly filtering for leadership clarity.</p>
-                </div>
-                <div>
-                  <span class="font-mono font-bold text-slate-900 uppercase tracking-wider block mb-1">03. Tools &amp; Tech Stack</span>
-                  <p class="font-mono text-lacoste-800 font-medium">Power Platform, Power Automate, Custom Code Apps, Power BI, SQL</p>
-                </div>
-                <div>
-                  <span class="font-mono font-bold text-slate-900 uppercase tracking-wider block mb-1">04. Deliverables</span>
-                  <p class="text-slate-600">End-to-end ITOT Operations Dashboard, Portfolio KPI Monitoring Tool, validated reporting rules, stakeholder documentation.</p>
-                </div>
-                <div>
-                  <span class="font-mono font-bold text-slate-900 uppercase tracking-wider block mb-1">05. Business Impact</span>
-                  <p class="text-slate-600">Transformed fragmented daily tracking into a single decision-ready operational tool adopted by team leads and senior leadership.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="interactive-card p-8 rounded-3xl bg-[#fafbf9] border border-slate-200/90 shadow-sm space-y-6 reveal-base reveal-right">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-mono font-bold uppercase text-lacoste-800 bg-lacoste-100 px-2.5 py-1 rounded">Analytics &amp; People Data</span>
-                <span class="text-xs text-slate-400 font-mono">GWP Reference</span>
-              </div>
-              <div>
-                <h2 class="font-display font-bold text-2xl text-slate-900 mb-2">Candidate Selection &amp; Program Performance Engine</h2>
-                <p class="text-sm text-slate-600 leading-relaxed">
-                  Constructed a data-backed selection and performance analytics mechanism across global initiatives, justifying resource allocation and streamlining candidate evaluation.
-                </p>
-              </div>
-
-              <div class="space-y-4 text-xs border-t border-slate-200 pt-5">
-                <div>
-                  <span class="font-mono font-bold text-slate-900 uppercase tracking-wider block mb-1">01. Business Problem</span>
-                  <p class="text-slate-600">Need for objective data analytics to justify paid intern quotas, track performance benchmarks, and evaluate global program participants.</p>
-                </div>
-                <div>
-                  <span class="font-mono font-bold text-slate-900 uppercase tracking-wider block mb-1">02. Approach &amp; Architecture</span>
-                  <p class="text-slate-600">Engineered structured tracking schemas and analytical scoring criteria integrating administrative workflows with measurable KPIs.</p>
-                </div>
-                <div>
-                  <span class="font-mono font-bold text-slate-900 uppercase tracking-wider block mb-1">03. Tools &amp; Tech Stack</span>
-                  <p class="font-mono text-lacoste-800 font-medium">Data Analytics, Excel Modelling, Performance Dashboards, Structured Evaluation Schemas</p>
-                </div>
-                <div>
-                  <span class="font-mono font-bold text-slate-900 uppercase tracking-wider block mb-1">04. Deliverables</span>
-                  <p class="text-slate-600">Candidate analytics matrices, automated tracking templates, administrative review frameworks.</p>
-                </div>
-                <div>
-                  <span class="font-mono font-bold text-slate-900 uppercase tracking-wider block mb-1">05. Business Impact</span>
-                  <p class="text-slate-600">Provided data-driven justification for paid placements and increased operational efficiency across international cohort programs.</p>
-                </div>
-              </div>
-            </div>
-
           </div>
 
         </div>
@@ -1031,7 +959,6 @@
                 <h3 class="font-display font-black text-xl text-slate-900">University Degrees</h3>
                 
                 <div class="space-y-4 pt-1">
-                  <!-- Degree 1: LLB -->
                   <div class="flex items-start gap-3.5 p-4 rounded-2xl bg-white border border-lacoste-200 shadow-sm">
                     <div class="w-10 h-10 rounded-xl bg-lacoste-800 text-white flex items-center justify-center shrink-0 font-display font-extrabold text-sm shadow">
                       LLB
@@ -1044,7 +971,6 @@
                     </div>
                   </div>
 
-                  <!-- Degree 2: MSc -->
                   <div class="flex items-start gap-3.5 p-4 rounded-2xl bg-white border border-lacoste-200 shadow-sm">
                     <div class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center shrink-0 font-display font-extrabold text-sm shadow">
                       MSc
@@ -1082,21 +1008,13 @@
 
             </div>
 
-            <!-- Profile Card on About Page with Jethro's Photo -->
+            <!-- Profile Card on About Page (Pure Portrait) -->
             <div class="lg:col-span-5 flex justify-center reveal-base reveal-right">
               <div class="lacoste-card-shadow max-w-[360px] w-full">
                 <div class="lacoste-card-inner p-4 sm:p-5 border border-slate-200/80 shadow-2xl">
-                  
-                  <div class="relative w-full aspect-[4/4.5] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-inner group">
-                    <img id="profile-img-about" src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/50cf03b7ad30895a3ef355637feee861bdf3f029/Jethro%20M.jpeg" alt="Jethro M" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
-                    
-                    <label class="absolute bottom-3 right-3 cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-lacoste-900 text-xs font-semibold shadow-md hover:bg-white hover:scale-105 transition-all">
-                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                      <span>Change Photo</span>
-                      <input type="file" accept="image/*" class="hidden" onchange="handlePhotoUpload(event)">
-                    </label>
+                  <div class="relative w-full aspect-[4/4.5] rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shadow-inner">
+                    <img src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/profile/good%20potrait.jpeg" alt="Jethro M Portrait" class="w-full h-full object-cover object-top">
                   </div>
-
                 </div>
               </div>
             </div>
@@ -1257,7 +1175,7 @@
   <!-- ================= CLEAN CENTERED FOOTER ================= -->
   <footer class="bg-white py-8 border-t border-slate-200 text-xs text-slate-500 text-center">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <span>Jethro M &bull; Portfolio &copy; 2026</span>
+      <span>Jethro M &copy; 2026</span>
     </div>
   </footer>
 
@@ -1285,11 +1203,17 @@
       setTimeout(initScrollReveal, 80);
     }
 
-    // 2. Carousel Scroll Track
+    // 2. Carousel Scroll Functions
     function scrollCarousel(direction) {
       const track = document.getElementById('recommendations-track');
       if (track) {
         track.scrollBy({ left: direction * 440, behavior: 'smooth' });
+      }
+    }
+    function scrollSlide(elementId, direction) {
+      const track = document.getElementById(elementId);
+      if (track) {
+        track.scrollBy({ left: direction * 400, behavior: 'smooth' });
       }
     }
 
@@ -1326,40 +1250,11 @@
       });
     }
 
-    // 6. Avatar Upload Sync (Header + Home + About)
-    function handlePhotoUpload(e) {
-      const file = e.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(evt) {
-        const dataUrl = evt.target.result;
-        syncImages(dataUrl);
-        try {
-          localStorage.setItem('jm_profile_photo', dataUrl);
-        } catch(err) {
-          console.warn('Image too large for local cache');
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-
-    function syncImages(url) {
-      const headerImg = document.getElementById('header-avatar');
-      const imgHome = document.getElementById('profile-img-home');
-      const imgAbout = document.getElementById('profile-img-about');
-      if (headerImg) headerImg.src = url;
-      if (imgHome) imgHome.src = url;
-      if (imgAbout) imgAbout.src = url;
-    }
-
     window.addEventListener('DOMContentLoaded', () => {
-      const savedPhoto = localStorage.getItem('jm_profile_photo');
-      if (savedPhoto) syncImages(savedPhoto);
       initScrollReveal();
-      initCursorFollower();
     });
 
-    // 7. Directional Smooth Scroll Observer (Flourished In & Out Transitions)
+    // 6. Directional Smooth Scroll Observer
     function initScrollReveal() {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -1377,38 +1272,7 @@
       document.querySelectorAll('.reveal-base').forEach(el => observer.observe(el));
     }
 
-    // 8. Ambient Cursor Glow Follower & F1 Car Indicator
-    function initCursorFollower() {
-      if (window.matchMedia('(pointer: fine)').matches) {
-        const follower = document.getElementById('cursor-follower');
-        const f1 = document.getElementById('cursor-f1');
-        if (!follower || !f1) return;
-        
-        follower.style.display = 'block';
-        f1.style.display = 'block';
-
-        let mouseX = 0, mouseY = 0;
-        let posX = 0, posY = 0;
-
-        window.addEventListener('mousemove', (e) => {
-          mouseX = e.clientX;
-          mouseY = e.clientY;
-          f1.style.left = mouseX + 'px';
-          f1.style.top = mouseY + 'px';
-        });
-
-        function animateFollower() {
-          posX += (mouseX - posX) * 0.12;
-          posY += (mouseY - posY) * 0.12;
-          follower.style.left = posX + 'px';
-          follower.style.top = posY + 'px';
-          requestAnimationFrame(animateFollower);
-        }
-        animateFollower();
-      }
-    }
-
-    // 9. Dynamic Governance Downloads
+    // 7. Dynamic Governance Downloads
     function downloadRiskRegisterCSV() {
       const headers = "Risk_ID,Category,Risk_Description,Likelihood,Impact,Inherent_Risk,EU_AI_Act_Article,NIST_Subcategory,Safeguard_Control,Residual_Risk\n";
       const rows = [
