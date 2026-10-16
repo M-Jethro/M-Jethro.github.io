@@ -1394,4 +1394,74 @@
         'R4,Human Agency,"Automation bias & recruiter rubber-stamping AI recommendations",High,Medium,"GDPR Art. 22 & AI Act Art. 14","Train reviewers; display evidence before recommendation; blind sample checks; monitor override rates",Recruitment Lead',
         'R5,Data Privacy,"Unlawful CV processing & unauthorized third-party vendor training",High,Medium,"GDPR Art. 6, 9 & 13/14","Document lawful basis; DPIA; candidate transparency notice; zero vendor model training on CVs",Controller / DPO',
         'R6,Security,"Indirect prompt injection, malicious CV links & candidate data leakage",High,Medium,"GDPR Art. 32 & AI Act Art. 15","Treat CVs as untrusted data; isolate extraction prompts; least privilege access; robust threat model",Security + Eng',
-        'R7,Supply Chain,"Vendor data reuse, unauthorized subprocessors & transfer non-compliance",High,Medium,"GDPR Chapter V &
+        'R7,Supply Chain,"Vendor data reuse, unauthorized subprocessors & transfer non-compliance",High,Medium,"GDPR Chapter V & AI Act Art. 28","Supplier due diligence; DPA; subprocessor approval; EU data residency & deletion verification",Procurement + Security',
+        'R8,Accessibility,"Format parsing failures on assistive technology, tables or scanned PDFs",Med-High,Medium,"EU Equal Treatment Framework","Test accessible & non-standard layouts; automated fallback to manual review",Product Owner + HR',
+        'R9,Auditability,"Opaque model output, untraceable scoring & absent telemetry",High,Low-Med,"AI Act Art. 12 & GDPR Art. 5(2)","Immutable logging of model version, criterion ID, cited snippet, and reviewer override",AI Owner',
+        'R10,Drift,"Scope creep, unapproved job families & model capability drift",Med-High,Medium,"AI Act Art. 9 & ISO/IEC 42001","Freeze intended purpose; mandate re-approval for new job families; incident stop triggers",AI Owner + HR'
+      ].join("\n");
+
+      const blob = new Blob([headers + rows], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "AI_Recruitment_Screening_Risk_Register.csv";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    function downloadControlSpecMD() {
+      const content = `# AI Recruitment & Screening: Pre-Pilot TEVV Protocol & Governance Specification
+**Case Reference:** AIGP Case Study 01 (SME Recruitment & Screening AI)
+**Prepared By:** Jethro M (IAPP Certified AIGP)
+**Legal Baseline:** EU AI Act (Regulation 2024/1689), GDPR (Regulation 2016/679), EU Equality Directives (2000/43/EC, 2000/78/EC, 2006/54/EC)
+
+---
+
+## 1. Executive Brief & System Boundary
+- **Objective:** Evaluate an SME employer's proposed tool to extract skills and prioritize applications for human review.
+- **In-Scope:** Document ingestion, skill extraction with evidence spans, mapping to HR-approved criteria, priority band assignment, and override logging.
+- **Strictly Prohibited:** Auto-rejection, facial/voice emotion analysis, culture-fit scoring, social media scraping, and vendor model training on CVs.
+
+---
+
+## 2. Regulatory Classification & Baseline
+1. **EU AI Act:** Presumed **High-Risk** under Annex III, point 4(a). Limited procedural exceptions under Article 6(3) do not apply if candidate profiling occurs.
+2. **GDPR:** DPIA screening is mandatory prior to pilot. Article 22 safeguards apply: reviewers must exercise genuine independent discretion, backed by time and authority.
+3. **Equality Law:** Statistical parity testing across gender and ethnic proxies is required to prevent indirect discrimination.
+
+---
+
+## 3. TEVV Release Gates (Test, Evaluation, Verification, Validation)
+- **Gate T1 (Skill Recall):** &ge; 95% recall for critical job-related skills on gold-set data. Zero unsupported evidence spans.
+- **Gate T3 (Counterfactual Invariance):** Zero statistically significant changes to priority bands when altering applicant names or pronouns.
+- **Gate T6 (Adversarial Robustness):** Prompt injections ("ignore instructions", embedded scripts) must not influence ranking or extract unauthorized data.
+- **Gate T7 (Human Oversight):** Blind sample auditing must prove human reviewers actively catch incorrect model extractions and override scores without friction.
+
+---
+
+## 4. Minimum Recruiter Operating Protocol
+1. Verify job-specific criteria were approved before reviewing AI priority bands.
+2. Inspect original CVs and cited evidence snippets for context and nuance.
+3. Treat low priority bands as an ordering aid only; never reject a candidate solely from model rank.
+4. Document the human decision rationale and any score override in the audit log.
+
+---
+
+## 5. Final Release Determination
+**DEFENSE POSITION:** **DEFER LIVE USE.** Proceed with offline prototype evaluation and supplier assurance. Live pilots remain blocked until all documented release gates pass without critical residual risks.
+`;
+
+      const blob = new Blob([content], { type: "text/markdown;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "AI_Recruitment_Screening_TEVV_Spec.md";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  </script>
+
+</body>
+</html>
