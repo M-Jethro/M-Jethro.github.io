@@ -104,7 +104,7 @@
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
     }
     .interactive-card:hover {
-      transform: translateY(-6px) scale(1.025);
+      transform: translateY(-6px) scale(1.02);
       box-shadow: 0 20px 38px -12px rgba(0, 69, 38, 0.16);
       border-color: #539e7c;
     }
@@ -239,7 +239,6 @@
             <!-- Left Column: 3-Layered Headline & Split Manifesto -->
             <div class="lg:col-span-7 space-y-8 reveal-base reveal-left">
               
-              <!-- Three-Layered Hero Title with Increased Line Height -->
               <h1 class="font-display font-black tracking-tight leading-[1.32] text-4xl sm:text-5xl lg:text-6xl text-slate-900">
                 <span class="block mb-2 text-slate-900">Data Analytics</span>
                 <span class="block mb-2 text-slate-700">Business Intelligence</span>
@@ -484,21 +483,31 @@
             </div>
           </div>
 
-          <!-- ================= SUB-SLIDESHOW: 3 EXCEL REPORTING SHOWCASE CARDS ================= -->
+          <!-- ================= EXCEL REPORTING SHOWCASE CARDS (DYNAMIC RATIO & LIGHTBOX) ================= -->
           <div class="mt-16 pt-16 border-t border-slate-200">
             <div class="mb-8 reveal-base reveal-up">
               <span class="text-xs font-mono font-bold uppercase tracking-wider text-lacoste-800 block mb-1">Financial &amp; Operational Modeling</span>
               <h3 class="font-display font-bold text-2xl text-slate-900">Excel Advanced Financial &amp; Operational Reporting</h3>
+              <p class="text-xs text-slate-500 font-mono mt-1">Click any report to inspect in full-screen high resolution</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Responsive 3-Column Layout: Natural Aspect Ratios -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
               
-              <!-- Excel Card 1 -->
-              <div class="interactive-card bg-[#fafbf9] rounded-2xl border border-slate-200 overflow-hidden shadow-sm reveal-base reveal-left">
-                <div class="h-48 bg-slate-100 border-b border-slate-200 relative flex items-center justify-center text-xs font-mono text-slate-400">
-                  <div class="text-center p-4">
-                    <span class="text-2xl block mb-1">&#128202;</span>
-                    <span>Excel Report 01 Image Placement</span>
+              <!-- Excel Card 1: dashboard-01.jpg -->
+              <div class="interactive-card bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden cursor-pointer group reveal-base reveal-left" onclick="openLightbox('https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-01.jpg', 'Financial Variance &amp; Operational KPI Model')">
+                <div class="w-full bg-slate-100 border-b border-slate-200 overflow-hidden relative">
+                  <img 
+                    src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-01.jpg" 
+                    alt="Financial Variance &amp; Operational KPI Model" 
+                    class="w-full h-auto block object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                    loading="lazy"
+                  />
+                  <div class="absolute inset-0 bg-lacoste-900/15 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="px-3.5 py-1.5 rounded-full bg-white/95 text-lacoste-900 font-mono text-[11px] font-semibold shadow-md flex items-center gap-1.5">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
+                      Click to expand
+                    </span>
                   </div>
                 </div>
                 <div class="p-5">
@@ -507,12 +516,20 @@
                 </div>
               </div>
 
-              <!-- Excel Card 2 -->
-              <div class="interactive-card bg-[#fafbf9] rounded-2xl border border-slate-200 overflow-hidden shadow-sm reveal-base reveal-up">
-                <div class="h-48 bg-slate-100 border-b border-slate-200 relative flex items-center justify-center text-xs font-mono text-slate-400">
-                  <div class="text-center p-4">
-                    <span class="text-2xl block mb-1">&#128200;</span>
-                    <span>Excel Report 02 Image Placement</span>
+              <!-- Excel Card 2: dashboard-02.jpg -->
+              <div class="interactive-card bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden cursor-pointer group reveal-base reveal-up" onclick="openLightbox('https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-02.jpg', 'Operational Capacity &amp; Resource Planner')">
+                <div class="w-full bg-slate-100 border-b border-slate-200 overflow-hidden relative">
+                  <img 
+                    src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-02.jpg" 
+                    alt="Operational Capacity &amp; Resource Planner" 
+                    class="w-full h-auto block object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                    loading="lazy"
+                  />
+                  <div class="absolute inset-0 bg-lacoste-900/15 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="px-3.5 py-1.5 rounded-full bg-white/95 text-lacoste-900 font-mono text-[11px] font-semibold shadow-md flex items-center gap-1.5">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
+                      Click to expand
+                    </span>
                   </div>
                 </div>
                 <div class="p-5">
@@ -521,12 +538,20 @@
                 </div>
               </div>
 
-              <!-- Excel Card 3 -->
-              <div class="interactive-card bg-[#fafbf9] rounded-2xl border border-slate-200 overflow-hidden shadow-sm reveal-base reveal-right">
-                <div class="h-48 bg-slate-100 border-b border-slate-200 relative flex items-center justify-center text-xs font-mono text-slate-400">
-                  <div class="text-center p-4">
-                    <span class="text-2xl block mb-1">&#128185;</span>
-                    <span>Excel Report 03 Image Placement</span>
+              <!-- Excel Card 3: dashboard-03.jpg -->
+              <div class="interactive-card bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden cursor-pointer group reveal-base reveal-right" onclick="openLightbox('https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-03.jpg', 'Executive Metric Dashboard Template')">
+                <div class="w-full bg-slate-100 border-b border-slate-200 overflow-hidden relative">
+                  <img 
+                    src="https://raw.githubusercontent.com/M-Jethro/M-Jethro.github.io/main/assets/images/projects/dashboard-03.jpg" 
+                    alt="Executive Metric Dashboard Template" 
+                    class="w-full h-auto block object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                    loading="lazy"
+                  />
+                  <div class="absolute inset-0 bg-lacoste-900/15 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="px-3.5 py-1.5 rounded-full bg-white/95 text-lacoste-900 font-mono text-[11px] font-semibold shadow-md flex items-center gap-1.5">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
+                      Click to expand
+                    </span>
                   </div>
                 </div>
                 <div class="p-5">
@@ -582,7 +607,6 @@
                 </p>
               </div>
               <div class="pt-5 mt-6 border-t border-white/15 flex items-center gap-3.5">
-                <!-- Illustrated Female Memoji -->
                 <div class="w-11 h-11 rounded-full bg-emerald-100 border-2 border-emerald-400 flex items-center justify-center text-xl shrink-0 shadow-sm">
                   &#128105;&#8205;&#128188;
                 </div>
@@ -610,7 +634,6 @@
                 </p>
               </div>
               <div class="pt-5 mt-6 border-t border-white/15 flex items-center gap-3.5">
-                <!-- Illustrated Female Memoji -->
                 <div class="w-11 h-11 rounded-full bg-cyan-100 border-2 border-cyan-400 flex items-center justify-center text-xl shrink-0 shadow-sm">
                   &#128105;&#127995;&#8205;&#128188;
                 </div>
@@ -638,7 +661,6 @@
                 </p>
               </div>
               <div class="pt-5 mt-6 border-t border-white/15 flex items-center gap-3.5">
-                <!-- Illustrated Male Memoji -->
                 <div class="w-11 h-11 rounded-full bg-blue-100 border-2 border-blue-400 flex items-center justify-center text-xl shrink-0 shadow-sm">
                   &#128104;&#127996;&#8205;&#128188;
                 </div>
@@ -664,7 +686,6 @@
                 </p>
               </div>
               <div class="pt-5 mt-6 border-t border-white/15 flex items-center gap-3.5">
-                <!-- Illustrated Female Memoji -->
                 <div class="w-11 h-11 rounded-full bg-amber-100 border-2 border-amber-400 flex items-center justify-center text-xl shrink-0 shadow-sm">
                   &#128105;&#127998;&#8205;&#128188;
                 </div>
@@ -682,12 +703,11 @@
 
     </div>
 
-    <!-- ================= PAGE 2: DATA & BI (OPERATIONAL, VISUAL, GEEKY DNA) ================= -->
+    <!-- ================= PAGE 2: DATA & BI ================= -->
     <div id="page-data-bi" class="page-view hidden">
       <section class="py-16 md:py-20 bg-white border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
-          <!-- Geeky / Operational DNA Banner -->
           <div class="p-6 rounded-3xl bg-slate-900 text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border border-slate-800 shadow-md reveal-base reveal-down">
             <div class="flex items-center gap-3">
               <span class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -708,7 +728,6 @@
             </p>
           </div>
 
-          <!-- Systems & Tools for Data & BI -->
           <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200 shadow-sm reveal-base reveal-up">
             <h3 class="font-display font-bold text-lg text-slate-900 mb-4 flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-lacoste-800"></span>
@@ -750,10 +769,8 @@
             </div>
           </div>
 
-          <!-- Deep-Dive Case Studies -->
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             
-            <!-- Project 1 -->
             <div class="interactive-card p-8 rounded-3xl bg-[#fafbf9] border border-slate-200/90 shadow-sm space-y-6 reveal-base reveal-left">
               <div class="flex items-center justify-between">
                 <span class="text-xs font-mono font-bold uppercase text-lacoste-800 bg-lacoste-100 px-2.5 py-1 rounded">Enterprise Operations Tool</span>
@@ -790,7 +807,6 @@
               </div>
             </div>
 
-            <!-- Project 2 -->
             <div class="interactive-card p-8 rounded-3xl bg-[#fafbf9] border border-slate-200/90 shadow-sm space-y-6 reveal-base reveal-right">
               <div class="flex items-center justify-between">
                 <span class="text-xs font-mono font-bold uppercase text-lacoste-800 bg-lacoste-100 px-2.5 py-1 rounded">Analytics &amp; People Data</span>
@@ -833,12 +849,11 @@
       </section>
     </div>
 
-    <!-- ================= PAGE 3: AI GOVERNANCE (COMPLIANCE, RIGOR, REGULATORY DNA) ================= -->
+    <!-- ================= PAGE 3: AI GOVERNANCE ================= -->
     <div id="page-ai-governance" class="page-view hidden">
       <section class="py-16 md:py-20 bg-white border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
-          <!-- Regulatory / Compliance DNA Banner -->
           <div class="p-6 rounded-3xl bg-lacoste-900 text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border border-lacoste-800 shadow-md reveal-base reveal-down">
             <div class="flex items-center gap-3">
               <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
@@ -859,7 +874,6 @@
             </p>
           </div>
 
-          <!-- Systems, Frameworks & Standards for AI Governance -->
           <div class="p-8 rounded-3xl bg-[#edf6f1]/60 border border-lacoste-200 shadow-sm reveal-base reveal-up">
             <h3 class="font-display font-bold text-lg text-slate-900 mb-4 flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-lacoste-800"></span>
@@ -901,7 +915,6 @@
             </div>
           </div>
 
-          <!-- Scope & Classification -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-base reveal-up">
             <div class="interactive-card p-6 rounded-2xl bg-[#fafbf9] border border-slate-200">
               <span class="text-xs font-mono font-bold uppercase text-lacoste-800">System Context</span>
@@ -926,7 +939,6 @@
             </div>
           </div>
 
-          <!-- Technical Workflow Diagram -->
           <div class="space-y-4 reveal-base reveal-up">
             <h3 class="font-display font-bold text-xl text-slate-900">Technical Guardrail &amp; Lifecycle Flow</h3>
             <div class="p-6 rounded-2xl bg-[#001e10] text-slate-100 overflow-x-auto shadow-inner">
@@ -964,7 +976,6 @@
             </div>
           </div>
 
-          <!-- Download Deliverables -->
           <div class="p-8 rounded-3xl bg-[#fafbf9] border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-6 reveal-base reveal-up">
             <div>
               <h3 class="font-display font-bold text-lg text-slate-900">Governance Deliverables &amp; Control Templates</h3>
@@ -986,7 +997,7 @@
       </section>
     </div>
 
-    <!-- ================= PAGE 4: ABOUT (PERSONALISED, FLAIR, DEGREES EMPHASIS) ================= -->
+    <!-- ================= PAGE 4: ABOUT ================= -->
     <div id="page-about" class="page-view hidden">
       <section class="py-16 md:py-24 bg-white border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
@@ -995,7 +1006,6 @@
             
             <div class="lg:col-span-7 space-y-6 reveal-base reveal-left">
               
-              <!-- Location Marker Tag -->
               <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-wider bg-lacoste-50 text-lacoste-800 border border-lacoste-200">
                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                 Location: Europe &bull; Open to Global &amp; Remote Roles
@@ -1015,7 +1025,7 @@
                 </p>
               </div>
 
-              <!-- ================= SECTION: HIGHLIGHTED ACADEMIC DEGREES (PREMIER EMPHASIS) ================= -->
+              <!-- Academic Degrees Premier Highlight -->
               <div class="p-7 rounded-3xl bg-gradient-to-br from-[#fafbf9] to-lacoste-50/60 border-2 border-lacoste-200 shadow-sm space-y-4 mt-8">
                 <span class="text-xs font-mono font-bold uppercase tracking-wider text-lacoste-800 block">Academic Pedigree</span>
                 <h3 class="font-display font-black text-xl text-slate-900">University Degrees</h3>
@@ -1050,20 +1060,18 @@
                 </div>
               </div>
 
-              <!-- ================= SECTION: PROFESSIONAL CERTIFICATIONS ================= -->
+              <!-- Professional Certifications -->
               <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
                 <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 block">Verified Accreditations</span>
                 <h3 class="font-display font-bold text-lg text-slate-900">Professional Certifications</h3>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                  <!-- AIGP -->
                   <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                     <span class="text-[10px] font-mono font-bold uppercase text-lacoste-800 block">IAPP Certified</span>
                     <strong class="text-xs font-bold text-slate-900 block mt-0.5">AI Governance Professional (AIGP)</strong>
                     <span class="text-[11px] text-slate-500 block mt-1">Lifecycle, TEVV, NIST AI RMF</span>
                   </div>
 
-                  <!-- PL-300 -->
                   <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                     <span class="text-[10px] font-mono font-bold uppercase text-amber-700 block">Microsoft Certified</span>
                     <strong class="text-xs font-bold text-slate-900 block mt-0.5">Power BI Data Analyst (PL-300)</strong>
@@ -1095,7 +1103,7 @@
 
           </div>
 
-          <!-- ================= SECTION: PREVIOUS PROFESSIONAL WORK EXPERIENCE ================= -->
+          <!-- Professional Career History -->
           <div class="p-8 sm:p-10 rounded-3xl bg-[#fafbf9] border border-slate-200 shadow-sm space-y-6 reveal-base reveal-up">
             <div>
               <span class="text-xs font-mono font-bold uppercase tracking-wider text-lacoste-800 block mb-1">Career History</span>
@@ -1127,7 +1135,7 @@
             </div>
           </div>
 
-          <!-- ================= SECTION: PERSONAL INTERESTS & HOBBIES ================= -->
+          <!-- Personal Interests & Hobbies -->
           <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200 shadow-sm space-y-6 reveal-base reveal-up">
             <div>
               <span class="text-xs font-mono font-bold uppercase tracking-wider text-lacoste-800 block mb-1">Off-Screen</span>
@@ -1180,6 +1188,17 @@
     </div>
 
   </main>
+
+  <!-- ================= IMAGE LIGHTBOX MODAL ================= -->
+  <div id="image-lightbox" class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-black/85 backdrop-blur-md hidden transition-opacity" onclick="closeLightbox()">
+    <div class="relative max-w-5xl w-full max-h-[92vh] flex flex-col items-center" onclick="event.stopPropagation()">
+      <button onclick="closeLightbox()" class="absolute -top-10 right-0 text-white/80 hover:text-white p-2 text-xs font-mono flex items-center gap-1.5 transition-colors">
+        <span>Close [ESC]</span> &times;
+      </button>
+      <img id="lightbox-img" src="" alt="Report Preview" class="w-auto max-w-full max-h-[82vh] rounded-xl shadow-2xl object-contain bg-white border border-slate-200" />
+      <p id="lightbox-caption" class="text-white font-mono text-xs mt-3 text-center"></p>
+    </div>
+  </div>
 
   <!-- ================= POPUP MODAL: GET IN TOUCH ================= -->
   <div id="contact-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm hidden transition-opacity">
@@ -1282,7 +1301,23 @@
       document.getElementById('contact-modal').classList.add('hidden');
     }
 
-    // 4. Copy Email
+    // 4. Lightbox Handlers
+    function openLightbox(src, caption) {
+      const box = document.getElementById('image-lightbox');
+      const img = document.getElementById('lightbox-img');
+      const cap = document.getElementById('lightbox-caption');
+      img.src = src;
+      cap.innerText = caption;
+      box.classList.remove('hidden');
+    }
+    function closeLightbox() {
+      document.getElementById('image-lightbox').classList.add('hidden');
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // 5. Copy Email
     function copyEmailToClipboard() {
       navigator.clipboard.writeText('jethromi@icloud.com').then(() => {
         const btn = document.getElementById('copy-email-btn');
@@ -1291,7 +1326,7 @@
       });
     }
 
-    // 5. Avatar Upload Sync (Header + Home + About)
+    // 6. Avatar Upload Sync (Header + Home + About)
     function handlePhotoUpload(e) {
       const file = e.target.files[0];
       if (!file) return;
@@ -1324,7 +1359,7 @@
       initCursorFollower();
     });
 
-    // 6. Directional Smooth Scroll Observer (Flourished In & Out Transitions)
+    // 7. Directional Smooth Scroll Observer (Flourished In & Out Transitions)
     function initScrollReveal() {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -1342,7 +1377,7 @@
       document.querySelectorAll('.reveal-base').forEach(el => observer.observe(el));
     }
 
-    // 7. Ambient Cursor Glow Follower & F1 Car Indicator
+    // 8. Ambient Cursor Glow Follower & F1 Car Indicator
     function initCursorFollower() {
       if (window.matchMedia('(pointer: fine)').matches) {
         const follower = document.getElementById('cursor-follower');
@@ -1373,7 +1408,7 @@
       }
     }
 
-    // 8. Dynamic Governance Downloads
+    // 9. Dynamic Governance Downloads
     function downloadRiskRegisterCSV() {
       const headers = "Risk_ID,Category,Risk_Description,Likelihood,Impact,Inherent_Risk,EU_AI_Act_Article,NIST_Subcategory,Safeguard_Control,Residual_Risk\n";
       const rows = [
