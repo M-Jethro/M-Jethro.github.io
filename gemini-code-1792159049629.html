@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jethro M | Data Analytics, BI &amp; AI Governance</title>
+  <meta name="description" content="Portfolio of Jethro M — Data Analytics, Business Intelligence, Data &amp; AI Governance.">
+
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            lacoste: {
+              50: '#edf6f1',
+              100: '#d7ece0',
+              200: '#b2d9c4',
+              300: '#83bea1',
+              400: '#539e7c',
+              500: '#2d7f5c',
+              600: '#1b6447',
+              700: '#125039',
+              800: '#004526', // Pure Lacoste Heritage Green
+              900: '#00331c',
+              950: '#001a0e',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .bg-grid-pattern {
+      background-size: 36px 36px;
+      background-image: 
+        linear-gradient(to right, rgba(0, 69, 38, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 69, 38, 0.035) 1px, transparent 1px);
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Ambient Cursor Glow Follower */
+    #cursor-follower {
+      pointer-events: none;
+      position: fixed;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 69, 38, 0.075) 0%, rgba(0, 69, 38, 0) 70%);
+      transform: translate(-50%, -50%);
+      z-index: 9998;
+      transition: width 0.3s, height 0.3s, opacity 0.3s;
+      display: none;
+    }
+    /* F1 Car Cursor Icon */
+    #cursor-f1 {
+      pointer-events: none;
+      position: fixed;
+      font-size: 22px;
+      z-index: 9999;
+      transform: translate(14px, 14px) rotate(-15deg);
+      transition: transform 0.15s ease-out;
+      display: none;
+      user-select: none;
+    }
+
+    /* Smooth Scroll Reveal with Flair */
+    .reveal-base {
+      opacity: 0;
+      transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1), transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-up { transform: translateY(48px) scale(0.98); }
+    .reveal-down { transform: translateY(-48px) scale(0.98); }
+    .reveal-left { transform: translateX(-55px) scale(0.98); }
+    .reveal-right { transform: translateX(55px) scale(0.98); }
+
+    .reveal-base.revealed {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+    }
+
+    /* Interactive Container Zoom & Elevation */
+    .interactive-card {
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+    }
+    .interactive-card:hover {
+      transform: translateY(-6px) scale(1.025);
+      box-shadow: 0 20px 38px -12px rgba(0, 69, 38, 0.16);
+      border-color: #539e7c;
+    }
+
+    /* Lacoste Card Framing */
+    .lacoste-card-shadow {
+      position: relative;
+    }
+    .lacoste-card-shadow::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 2rem;
+      background: linear-gradient(135deg, #004526 0%, #1b6447 100%);
+      transform: rotate(-2.5deg);
+      z-index: 0;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 18px 40px -12px rgba(0, 69, 38, 0.35);
+    }
+    .lacoste-card-shadow:hover::before {
+      transform: rotate(-3.5deg) scale(1.02);
+    }
+    .lacoste-card-inner {
+      position: relative;
+      z-index: 1;
+      background: #ffffff;
+      border-radius: 1.75rem;
+    }
+  </style>
+</head>
+<body class="bg-[#fafbf9] text-slate-800 font-sans antialiased selection:bg-lacoste-800 selection:text-white flex flex-col min-h-screen">
+
+  <!-- ================= AMBIENT CURSOR & F1 POINTER ================= -->
+  <div id="cursor-follower"></div>
+  <div id="cursor-f1" title="Racing through Data &amp; Governance">&#127937;</div>
+
+  <!-- ================= TOP NAVIGATION HEADER ================= -->
+  <header class="sticky top-0 z-50 bg-[#fafbf9]/95 backdrop-blur-md border-b border-slate-200/80 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand & Clickable Avatar -->
+      <div class="flex items-center gap-3.5 group">
+        <label title="Click to change avatar image" class="relative cursor-pointer w-11 h-11 rounded-full overflow-hidden bg-lacoste-800 text-white flex items-center justify-center font-display font-bold text-sm tracking-wider shadow-sm hover:ring-2 hover:ring-lacoste-500 transition-all">
+          <img id="header-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Avatar" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-black/35 opacity-0 hover:opacity-100 flex items-center justify-center transition-opacity text-xs font-mono text-white">
+            &#128247;
+          </div>
+          <input type="file" accept="image/*" class="hidden" onchange="handlePhotoUpload(event)">
+        </label>
+
+        <!-- Brand Name -->
+        <a href="javascript:void(0)" onclick="navigateTo('home')" class="font-display font-black text-slate-900 text-xl tracking-tight hover:text-lacoste-800 transition-colors">
+          Jethro M
+        </a>
+      </div>
+
+      <!-- Clean 4-Page Navigation -->
+      <nav class="hidden md:flex items-center gap-1 bg-white/90 p-1.5 rounded-full border border-slate-200 shadow-sm text-sm font-medium backdrop-blur-sm">
+        <button onclick="navigateTo('home')" id="nav-home" class="nav-btn px-4 py-1.5 rounded-full text-white bg-lacoste-800 transition-all">Home</button>
+        <button onclick="navigateTo('data-bi')" id="nav-data-bi" class="nav-btn px-4 py-1.5 rounded-full text-slate-600 hover:text-lacoste-800 hover:bg-lacoste-50 transition-all">Data &amp; BI</button>
+        <button onclick="navigateTo('ai-governance')" id="nav-ai-governance" class="nav-btn px-4 py-1.5 rounded-full text-slate-600 hover:text-lacoste-800 hover:bg-lacoste-50 transition-all">AI Governance</button>
+        <button onclick="navigateTo('about')" id="nav-about" class="nav-btn px-4 py-1.5 rounded-full text-slate-600 hover:text-lacoste-800 hover:bg-lacoste-50 transition-all">About</button>
+      </nav>
+
+      <!-- External Social Icons & Modal Trigger -->
+      <div class="hidden lg:flex items-center gap-3">
+        
+        <!-- LinkedIn (Official Brand Blue) -->
+        <a href="https://www.linkedin.com/in/jethromuwanguzi/" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile" class="p-2.5 rounded-xl bg-white hover:bg-blue-50 border border-slate-200 shadow-sm transition-all hover:scale-110">
+          <svg class="w-4 h-4 fill-[#0A66C2]" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.738-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+
+        <!-- GitHub (Official Brand Dark) -->
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" title="GitHub" class="p-2.5 rounded-xl bg-white hover:bg-slate-100 border border-slate-200 shadow-sm transition-all hover:scale-110">
+          <svg class="w-4 h-4 fill-[#24292F]" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+
+        <!-- Tableau (Official Brand Plus Cluster Vector) -->
+        <a href="https://public.tableau.com" target="_blank" rel="noopener noreferrer" title="Tableau Public" class="p-2 rounded-xl bg-white hover:bg-orange-50 border border-slate-200 shadow-sm transition-all hover:scale-110 flex items-center justify-center">
+          <svg class="w-6 h-6" viewBox="0 0 24 24">
+            <path fill="#EB762B" d="M11.16 1.7h1.68v4.24h-1.68z"/>
+            <path fill="#EB762B" d="M11.16 18.06h1.68v4.24h-1.68z"/>
+            <path fill="#4C78A8" d="M3.7 11.16h4.24v1.68H3.7z"/>
+            <path fill="#4C78A8" d="M16.06 11.16h4.24v1.68h-4.24z"/>
+            <path fill="#E45756" d="M6.88 6.1h1.56v3.9H6.88z"/>
+            <path fill="#72B7B2" d="M15.56 6.1h1.56v3.9h-1.56z"/>
+            <path fill="#F58518" d="M15.56 14h1.56v3.9h-1.56z"/>
+            <path fill="#54A24B" d="M6.88 14h1.56v3.9H6.88z"/>
+            <path fill="#B279A2" d="M11.04 9.6h1.92v4.8h-1.92z"/>
+          </svg>
+        </a>
+
+        <!-- Get In Touch Button -->
+        <button onclick="openContactModal()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-lacoste-800 text-white font-semibold text-xs hover:bg-lacoste-900 shadow-sm transition-all ml-1 hover:shadow">
+          <span>Get in Touch</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav Toggle -->
+      <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden p-2 text-slate-700 hover:text-lacoste-800">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 bg-white px-4 pt-3 pb-5 space-y-2">
+      <button onclick="navigateTo('home'); document.getElementById('mobile-menu').classList.add('hidden')" class="block w-full text-left px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-lacoste-50">Home</button>
+      <button onclick="navigateTo('data-bi'); document.getElementById('mobile-menu').classList.add('hidden')" class="block w-full text-left px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-lacoste-50">Data &amp; BI</button>
+      <button onclick="navigateTo('ai-governance'); document.getElementById('mobile-menu').classList.add('hidden')" class="block w-full text-left px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-lacoste-50">AI Governance</button>
+      <button onclick="navigateTo('about'); document.getElementById('mobile-menu').classList.add('hidden')" class="block w-full text-left px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-lacoste-50">About</button>
+      <div class="pt-3 border-t border-slate-100">
+        <button onclick="openContactModal(); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full py-2.5 rounded-lg bg-lacoste-800 text-white font-semibold text-xs text-center">
+          Get in Touch &rarr;
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MAIN ROUTER ================= -->
+  <main class="flex-grow">
+
+    <!-- ================= PAGE 1: HOME ================= -->
+    <div id="page-home" class="page-view">
+      
+      <!-- HERO: Airy, Increased Line Spacing, Strategic Highlights -->
+      <section class="py-16 md:py-24 bg-grid-pattern border-b border-slate-200/60 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            
+            <!-- Left Column: 3-Layered Headline & Split Manifesto -->
+            <div class="lg:col-span-7 space-y-8 reveal-base reveal-left">
+              
+              <!-- Three-Layered Hero Title with Increased Line Height -->
+              <h1 class="font-display font-black tracking-tight leading-[1.32] text-4xl sm:text-5xl lg:text-6xl text-slate-900">
+                <span class="block mb-2 text-slate-900">Data Analytics</span>
+                <span class="block mb-2 text-slate-700">Business Intelligence</span>
+                <span class="block text-lacoste-800">Data &amp; AI Governance</span>
+              </h1>
+
+              <!-- Split Quotes Architecture -->
+              <div class="space-y-4">
+                
+                <!-- Primary Bold Quote (Large Focus) -->
+                <div class="p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/90 shadow-sm relative reveal-base reveal-up">
+                  <div class="absolute -left-1.5 top-6 bottom-6 w-1.5 bg-lacoste-800 rounded-full"></div>
+                  <p class="text-lg sm:text-xl font-bold text-slate-900 leading-snug pl-3">
+                    &ldquo;Governance works when it's built into how data and AI systems are designed, not reviewed after the fact.&rdquo;
+                  </p>
+                </div>
+
+                <!-- Secondary Underplaced Quote -->
+                <div class="p-5 rounded-xl bg-slate-50 border border-slate-200/70 reveal-base reveal-up" style="transition-delay: 100ms;">
+                  <p class="text-sm sm:text-base text-slate-600 font-medium leading-relaxed pl-2">
+                    &ldquo;As a certified AI Governance Professional (AIGP), with a Bachelor of Laws and hands-on Data, BI &amp; AI Solution experience, I bridge engineering and compliance.&rdquo;
+                  </p>
+                </div>
+
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="pt-2 flex flex-wrap gap-4 reveal-base reveal-up">
+                <button onclick="navigateTo('data-bi')" class="px-6 py-3.5 rounded-xl bg-lacoste-800 text-white font-semibold text-sm hover:bg-lacoste-900 shadow-sm transition-all flex items-center gap-2">
+                  <span>Explore Data &amp; BI Portfolio</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </button>
+                <button onclick="navigateTo('ai-governance')" class="px-6 py-3.5 rounded-xl bg-white text-lacoste-800 border-2 border-lacoste-800 font-semibold text-sm hover:bg-lacoste-50 transition-all flex items-center gap-2">
+                  <span>View AI Governance Case Study</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+
+            </div>
+
+            <!-- Right Column: Clean Framed Photo Card -->
+            <div class="lg:col-span-5 flex justify-center reveal-base reveal-right">
+              <div class="lacoste-card-shadow max-w-[360px] w-full">
+                <div class="lacoste-card-inner p-4 sm:p-5 border border-slate-200/80 shadow-2xl">
+                  <div class="relative w-full aspect-[4/4.5] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-inner group">
+                    <img id="profile-img-home" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Portrait" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                    
+                    <label class="absolute bottom-3 right-3 cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-lacoste-900 text-xs font-semibold shadow-md hover:bg-white hover:scale-105 transition-all">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                      <span>Change Photo</span>
+                      <input type="file" accept="image/*" class="hidden" onchange="handlePhotoUpload(event)">
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= 5-PROJECT LIFECYCLE PROJECTS & INTERACTIVE SYSTEMS BAR ================= -->
+      <section class="py-20 bg-white border-b border-slate-200 transition-colors duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="max-w-3xl mb-8 reveal-base reveal-up">
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-lacoste-800 block mb-1">Portfolio</span>
+            <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">Data Analytics Lifecycle Projects</h2>
+          </div>
+
+          <!-- Interactive Tech Stack Badges Bar -->
+          <div class="mb-14 reveal-base reveal-up">
+            <span class="text-xs font-mono text-slate-500 uppercase tracking-wider block mb-3">Systems &amp; Languages:</span>
+            <div class="flex flex-wrap items-center gap-2.5">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 font-mono text-xs font-semibold text-slate-800 shadow-sm hover:border-lacoste-400 hover:bg-lacoste-50 transition-all cursor-default">
+                <span class="w-2 h-2 rounded-full bg-blue-600"></span> Python
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 font-mono text-xs font-semibold text-slate-800 shadow-sm hover:border-lacoste-400 hover:bg-lacoste-50 transition-all cursor-default">
+                <span class="w-2 h-2 rounded-full bg-orange-500"></span> SQL
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 font-mono text-xs font-semibold text-slate-800 shadow-sm hover:border-lacoste-400 hover:bg-lacoste-50 transition-all cursor-default">
+                <span class="w-2 h-2 rounded-full bg-amber-400"></span> Power BI
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 font-mono text-xs font-semibold text-slate-800 shadow-sm hover:border-lacoste-400 hover:bg-lacoste-50 transition-all cursor-default">
+                <span class="w-2 h-2 rounded-full bg-emerald-600"></span> Excel
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 font-mono text-xs font-semibold text-slate-800 shadow-sm hover:border-lacoste-400 hover:bg-lacoste-50 transition-all cursor-default">
+                <span class="w-2 h-2 rounded-full bg-[#EB762B]"></span> Tableau
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 font-mono text-xs font-semibold text-slate-800 shadow-sm hover:border-lacoste-400 hover:bg-lacoste-50 transition-all cursor-default">
+                <span class="w-2 h-2 rounded-full bg-blue-400"></span> Program R
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 font-mono text-xs font-semibold text-slate-800 shadow-sm hover:border-lacoste-400 hover:bg-lacoste-50 transition-all cursor-default">
+                <span class="w-2 h-2 rounded-full bg-red-500"></span> Git
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 font-mono text-xs font-semibold text-slate-800 shadow-sm hover:border-lacoste-400 hover:bg-lacoste-50 transition-all cursor-default">
+                <span class="w-2 h-2 rounded-full bg-orange-600"></span> Jupyter Notebooks
+              </span>
+            </div>
+          </div>
+
+          <!-- Top Row: 2 Big Highlight Projects (Ireland's Investment & NHS Activity) -->
+          <div class="space-y-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              
+              <!-- Spotlight 1: Ireland's Investment Economy -->
+              <a href="https://lnkd.in/p/eV4ccaWi" target="_blank" rel="noopener noreferrer" class="interactive-card group block bg-[#fafbf9] rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden reveal-base reveal-left">
+                <div class="h-64 sm:h-72 bg-slate-950 p-6 relative flex flex-col justify-between overflow-hidden">
+                  <div class="absolute inset-0 bg-gradient-to-tr from-slate-950 via-slate-900 to-lacoste-950 opacity-95 group-hover:scale-105 transition-transform duration-700"></div>
+                  
+                  <div class="relative z-10 flex items-center justify-between text-xs text-slate-300 font-mono">
+                    <span class="font-bold text-white tracking-wider">ECONOMIC ANALYTICS</span>
+                    <span class="text-emerald-400 font-bold flex items-center gap-1">VIEW PROJECT &nearr;</span>
+                  </div>
+
+                  <div class="relative z-10 grid grid-cols-3 gap-2.5 my-auto">
+                    <div class="bg-white/10 p-3 rounded-xl border border-white/10">
+                      <span class="block text-[10px] font-mono text-slate-400 uppercase">Capital Flows</span>
+                      <span class="text-base font-bold font-mono text-emerald-400">&euro; Multi-Billion</span>
+                    </div>
+                    <div class="bg-white/10 p-3 rounded-xl border border-white/10">
+                      <span class="block text-[10px] font-mono text-slate-400 uppercase">FDI Allocation</span>
+                      <span class="text-base font-bold font-mono text-cyan-300">Multi-Sector</span>
+                    </div>
+                    <div class="bg-white/10 p-3 rounded-xl border border-white/10">
+                      <span class="block text-[10px] font-mono text-slate-400 uppercase">Macro Trends</span>
+                      <span class="text-base font-bold font-mono text-amber-300">10-Yr Timeseries</span>
+                    </div>
+                  </div>
+
+                  <div class="relative z-10 bg-white/5 rounded-xl p-2.5 text-xs font-mono text-slate-300 flex items-center justify-between border border-white/10">
+                    <span>Ireland's National Economic Dataset</span>
+                    <span class="text-emerald-400 font-bold">&bull; Verified Publication</span>
+                  </div>
+                </div>
+                <div class="p-6">
+                  <span class="text-xs font-mono uppercase font-bold text-lacoste-800 bg-lacoste-100 px-2.5 py-1 rounded">Macroeconomic Intelligence</span>
+                  <h3 class="font-display font-bold text-2xl text-slate-900 mt-2.5 group-hover:text-lacoste-800 transition-colors">Ireland's Investment Economy</h3>
+                  <p class="text-sm text-slate-600 mt-2 leading-relaxed">Comprehensive macroeconomic analytics and investment evaluation visualizing FDI capital allocation, sectoral growth trends, and regional employment impacts.</p>
+                </div>
+              </a>
+
+              <!-- Spotlight 2: NHS Hospital Admitted Patient Care Activity -->
+              <a href="https://public.tableau.com/views/NHSHospitalAdmittedPatientCareActivity_16608510824620/Dashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener noreferrer" class="interactive-card group block bg-[#fafbf9] rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden reveal-base reveal-right">
+                <div class="h-64 sm:h-72 bg-slate-950 p-6 relative flex flex-col justify-between overflow-hidden">
+                  <div class="absolute inset-0 bg-gradient-to-tr from-slate-950 via-slate-900 to-cyan-950 opacity-95 group-hover:scale-105 transition-transform duration-700"></div>
+                  
+                  <div class="relative z-10 flex items-center justify-between text-xs text-slate-300 font-mono">
+                    <span class="font-bold text-white tracking-wider">NHS HEALTHCARE ANALYTICS</span>
+                    <span class="text-cyan-400 font-bold flex items-center gap-1">TABLEAU PUBLIC &nearr;</span>
+                  </div>
+
+                  <div class="relative z-10 grid grid-cols-3 gap-2.5 my-auto">
+                    <div class="bg-white/10 p-3 rounded-xl border border-white/10">
+                      <span class="block text-[10px] font-mono text-slate-400 uppercase">Admissions</span>
+                      <span class="text-base font-bold font-mono text-cyan-300">19M+ Records</span>
+                    </div>
+                    <div class="bg-white/10 p-3 rounded-xl border border-white/10">
+                      <span class="block text-[10px] font-mono text-slate-400 uppercase">Bed Capacity</span>
+                      <span class="text-base font-bold font-mono text-emerald-400">92% Occupancy</span>
+                    </div>
+                    <div class="bg-white/10 p-3 rounded-xl border border-white/10">
+                      <span class="block text-[10px] font-mono text-slate-400 uppercase">Mean LOS</span>
+                      <span class="text-base font-bold font-mono text-amber-300">4.8 Days</span>
+                    </div>
+                  </div>
+
+                  <div class="relative z-10 bg-white/5 rounded-xl p-2.5 text-xs font-mono text-slate-300 flex items-center justify-between border border-white/10">
+                    <span>NHS Digital Activity Statistics</span>
+                    <span class="text-cyan-300 font-bold">&bull; Interactive Clinical Model</span>
+                  </div>
+                </div>
+                <div class="p-6">
+                  <span class="text-xs font-mono uppercase font-bold text-cyan-800 bg-cyan-50 px-2.5 py-1 rounded">Healthcare Clinical Analytics</span>
+                  <h3 class="font-display font-bold text-2xl text-slate-900 mt-2.5 group-hover:text-cyan-700 transition-colors">NHS Hospital Admitted Patient Care Activity</h3>
+                  <p class="text-sm text-slate-600 mt-2 leading-relaxed">Interactive Tableau healthcare analytics dashboard monitoring admitted patient care activity, clinical specialty distributions, diagnosis codes, and bed utilization.</p>
+                </div>
+              </a>
+
+            </div>
+
+            <!-- Bottom Row: 3 Wide Lifecycle Cards (Card 3: HR Overview, Cards 4 & 5: Future Holders) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              
+              <!-- Spotlight 3: Human Resources Overview Dashboard -->
+              <a href="https://public.tableau.com/views/HumanResourcesOverviewDashboard_17402217394040/FinalDashboard3?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener noreferrer" class="interactive-card group block bg-[#fafbf9] rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden reveal-base reveal-left">
+                <div class="h-44 bg-slate-950 p-4 relative flex flex-col justify-between overflow-hidden">
+                  <div class="absolute inset-0 bg-gradient-to-tr from-slate-950 to-emerald-950 opacity-95 group-hover:scale-105 transition-transform duration-700"></div>
+                  <div class="relative z-10 flex items-center justify-between text-xs text-slate-300 font-mono">
+                    <span>HR PEOPLE ANALYTICS</span>
+                    <span class="text-emerald-400 font-bold">OPEN &nearr;</span>
+                  </div>
+                  <div class="relative z-10 space-y-2 text-[10px] font-mono">
+                    <div class="h-8 bg-white/10 rounded px-2.5 flex items-center justify-between text-white">
+                      <span>Headcount &bull; Attrition Tracking</span>
+                      <span class="text-emerald-400 font-bold">Live Breakdown</span>
+                    </div>
+                    <div class="h-8 bg-white/10 rounded px-2.5 flex items-center justify-between text-white">
+                      <span>Departmental Demographics</span>
+                      <span class="text-cyan-300 font-bold">Tableau Model</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-5">
+                  <span class="text-[10px] font-mono uppercase font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded">People Operations</span>
+                  <h3 class="font-display font-bold text-base text-slate-900 mt-2 group-hover:text-lacoste-800 transition-colors">Human Resources Overview Dashboard</h3>
+                  <p class="text-xs text-slate-600 mt-1">Workforce demographic metrics, departmental turnover analytics, and performance evaluation tracking.</p>
+                </div>
+              </a>
+
+              <!-- Container 4: Reserved Placement -->
+              <div class="interactive-card bg-[#fafbf9] rounded-2xl border-2 border-dashed border-slate-300 p-5 flex flex-col justify-between reveal-base reveal-up">
+                <div class="space-y-3">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[10px] font-mono uppercase font-bold text-lacoste-800 bg-lacoste-50 px-2 py-0.5 rounded">Portfolio Project 04</span>
+                    <span class="text-xs text-slate-400 font-mono">Upcoming</span>
+                  </div>
+                  <h3 class="font-display font-bold text-base text-slate-900">Enterprise Data Solution</h3>
+                  <p class="text-xs text-slate-600">Reserved project placement for end-to-end data pipeline &amp; dimensional modeling.</p>
+                </div>
+                <div class="h-28 bg-slate-100 rounded-xl border border-slate-200 flex items-center justify-center text-xs font-mono text-slate-400">
+                  Container 04 Details &amp; Visuals
+                </div>
+              </div>
+
+              <!-- Container 5: Reserved Placement -->
+              <div class="interactive-card bg-[#fafbf9] rounded-2xl border-2 border-dashed border-slate-300 p-5 flex flex-col justify-between reveal-base reveal-right">
+                <div class="space-y-3">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[10px] font-mono uppercase font-bold text-lacoste-800 bg-lacoste-50 px-2 py-0.5 rounded">Portfolio Project 05</span>
+                    <span class="text-xs text-slate-400 font-mono">Upcoming</span>
+                  </div>
+                  <h3 class="font-display font-bold text-base text-slate-900">AI Automation Workflow</h3>
+                  <p class="text-xs text-slate-600">Reserved project placement for low-code/pro-code automation integration.</p>
+                </div>
+                <div class="h-28 bg-slate-100 rounded-xl border border-slate-200 flex items-center justify-center text-xs font-mono text-slate-400">
+                  Container 05 Details &amp; Visuals
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ================= SUB-SLIDESHOW: 3 EXCEL REPORTING SHOWCASE CARDS ================= -->
+          <div class="mt-16 pt-16 border-t border-slate-200">
+            <div class="mb-8 reveal-base reveal-up">
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-lacoste-800 block mb-1">Financial &amp; Operational Modeling</span>
+              <h3 class="font-display font-bold text-2xl text-slate-900">Excel Advanced Financial &amp; Operational Reporting</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              
+              <!-- Excel Card 1 -->
+              <div class="interactive-card bg-[#fafbf9] rounded-2xl border border-slate-200 overflow-hidden shadow-sm reveal-base reveal-left">
+                <div class="h-48 bg-slate-100 border-b border-slate-200 relative flex items-center justify-center text-xs font-mono text-slate-400">
+                  <div class="text-center p-4">
+                    <span class="text-2xl block mb-1">&#128202;</span>
+                    <span>Excel Report 01 Image Placement</span>
+                  </div>
+                </div>
+                <div class="p-5">
+                  <h4 class="font-display font-bold text-sm text-slate-900">Financial Variance &amp; Forecast Model</h4>
+                  <p class="text-xs text-slate-500 mt-1 font-mono">Automated dynamic reconciliation and forward quarterly projections.</p>
+                </div>
+              </div>
+
+              <!-- Excel Card 2 -->
+              <div class="interactive-card bg-[#fafbf9] rounded-2xl border border-slate-200 overflow-hidden shadow-sm reveal-base reveal-up">
+                <div class="h-48 bg-slate-100 border-b border-slate-200 relative flex items-center justify-center text-xs font-mono text-slate-400">
+                  <div class="text-center p-4">
+                    <span class="text-2xl block mb-1">&#128200;</span>
+                    <span>Excel Report 02 Image Placement</span>
+                  </div>
+                </div>
+                <div class="p-5">
+                  <h4 class="font-display font-bold text-sm text-slate-900">Operational Capacity &amp; Resource Planner</h4>
+                  <p class="text-xs text-slate-500 mt-1 font-mono">Multi-department headcount and workload capacity planning matrix.</p>
+                </div>
+              </div>
+
+              <!-- Excel Card 3 -->
+              <div class="interactive-card bg-[#fafbf9] rounded-2xl border border-slate-200 overflow-hidden shadow-sm reveal-base reveal-right">
+                <div class="h-48 bg-slate-100 border-b border-slate-200 relative flex items-center justify-center text-xs font-mono text-slate-400">
+                  <div class="text-center p-4">
+                    <span class="text-2xl block mb-1">&#128185;</span>
+                    <span>Excel Report 03 Image Placement</span>
+                  </div>
+                </div>
+                <div class="p-5">
+                  <h4 class="font-display font-bold text-sm text-slate-900">Executive Metric Dashboard Template</h4>
+                  <p class="text-xs text-slate-500 mt-1 font-mono">Executive KPI dashboard with dynamic slicing and index matching.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= RECOMMENDATIONS CAROUSEL (PURE LACOSTE GREEN #004526) ================= -->
+      <section class="py-20 bg-[#004526] text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="flex items-center justify-between mb-10 reveal-base reveal-up">
+            <div>
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-300 block">Recommendations</span>
+              <h2 class="font-display font-bold text-2xl sm:text-3xl text-white mt-1">What leaders had to say</h2>
+            </div>
+            
+            <!-- Controls -->
+            <div class="flex items-center gap-2">
+              <button onclick="scrollCarousel(-1)" title="Scroll Left" class="p-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white shadow-sm transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              </button>
+              <button onclick="scrollCarousel(1)" title="Scroll Right" class="p-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white shadow-sm transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Carousel Scroll Track -->
+          <div id="recommendations-track" class="flex gap-6 overflow-x-auto hide-scrollbar pb-4 pt-1 scroll-smooth">
+            
+            <!-- Endorsement 1: Tanja Kosljar (Novartis) - Female Memoji -->
+            <div class="interactive-card min-w-[340px] sm:min-w-[440px] max-w-[440px] flex-shrink-0 p-7 rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg flex flex-col justify-between reveal-base reveal-left">
+              <div>
+                <div class="flex items-center justify-between mb-5">
+                  <div class="flex items-center gap-2.5 bg-white px-3 py-1.5 rounded-xl shadow-sm">
+                    <svg class="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    <span class="font-display font-extrabold text-xs text-slate-900 tracking-wider">NOVARTIS</span>
+                  </div>
+                  <span class="text-[11px] font-mono text-emerald-300 bg-white/10 px-2.5 py-1 rounded font-semibold">DD&amp;IT Operations</span>
+                </div>
+                <p class="text-sm text-slate-100 leading-relaxed italic">
+                  &ldquo;Jethro stood out for his sharp analytical thinking, genuine curiosity, and ability to turn complex information into practical, decision-ready insights. What I valued most was his combination of ownership and humility.&rdquo;
+                </p>
+              </div>
+              <div class="pt-5 mt-6 border-t border-white/15 flex items-center gap-3.5">
+                <!-- Illustrated Female Memoji -->
+                <div class="w-11 h-11 rounded-full bg-emerald-100 border-2 border-emerald-400 flex items-center justify-center text-xl shrink-0 shadow-sm">
+                  &#128105;&#8205;&#128188;
+                </div>
+                <div>
+                  <h4 class="font-bold text-sm text-white">Tanja Kosljar</h4>
+                  <p class="text-xs text-emerald-200">Director ITOT Operations, Novartis</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Endorsement 2: Rianna Gonzales (GWP) - Female Memoji -->
+            <div class="interactive-card min-w-[340px] sm:min-w-[440px] max-w-[440px] flex-shrink-0 p-7 rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg flex flex-col justify-between reveal-base reveal-up">
+              <div>
+                <div class="flex items-center justify-between mb-5">
+                  <div class="flex items-center gap-2.5 bg-white px-3 py-1.5 rounded-xl shadow-sm">
+                    <svg class="w-5 h-5 text-cyan-600" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                    </svg>
+                    <span class="font-display font-extrabold text-xs text-slate-900 tracking-wider">GWP</span>
+                  </div>
+                  <span class="text-[11px] font-mono text-cyan-200 bg-white/10 px-2.5 py-1 rounded font-semibold">Global Water Partnership</span>
+                </div>
+                <p class="text-sm text-slate-100 leading-relaxed italic">
+                  &ldquo;Jethro used his data analytics skills to enhance our operations, improving candidate selection and performance tracking. He is a talented professional, combining technical expertise with strong people skills.&rdquo;
+                </p>
+              </div>
+              <div class="pt-5 mt-6 border-t border-white/15 flex items-center gap-3.5">
+                <!-- Illustrated Female Memoji -->
+                <div class="w-11 h-11 rounded-full bg-cyan-100 border-2 border-cyan-400 flex items-center justify-center text-xl shrink-0 shadow-sm">
+                  &#128105;&#127995;&#8205;&#128188;
+                </div>
+                <div>
+                  <h4 class="font-bold text-sm text-white">Rianna Gonzales</h4>
+                  <p class="text-xs text-cyan-200">Water Resources Management Professional</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Endorsement 3: Colin Herron (GWP) - Male Memoji -->
+            <div class="interactive-card min-w-[340px] sm:min-w-[440px] max-w-[440px] flex-shrink-0 p-7 rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg flex flex-col justify-between reveal-base reveal-right">
+              <div>
+                <div class="flex items-center justify-between mb-5">
+                  <div class="flex items-center gap-2.5 bg-white px-3 py-1.5 rounded-xl shadow-sm">
+                    <svg class="w-5 h-5 text-cyan-600" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                    </svg>
+                    <span class="font-display font-extrabold text-xs text-slate-900 tracking-wider">GWP</span>
+                  </div>
+                  <span class="text-[11px] font-mono text-cyan-200 bg-white/10 px-2.5 py-1 rounded font-semibold">Sustainable Development</span>
+                </div>
+                <p class="text-sm text-slate-100 leading-relaxed italic">
+                  &ldquo;Jethro is very level-headed, doesn't get easily flustered, listens well and reflects before giving his own perspective. He demonstrated huge potential for continued growth.&rdquo;
+                </p>
+              </div>
+              <div class="pt-5 mt-6 border-t border-white/15 flex items-center gap-3.5">
+                <!-- Illustrated Male Memoji -->
+                <div class="w-11 h-11 rounded-full bg-blue-100 border-2 border-blue-400 flex items-center justify-center text-xl shrink-0 shadow-sm">
+                  &#128104;&#127996;&#8205;&#128188;
+                </div>
+                <div>
+                  <h4 class="font-bold text-sm text-white">Colin Herron</h4>
+                  <p class="text-xs text-cyan-200">Senior Water &amp; Sustainable Development Expert</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Endorsement 4: Esther Kalenzi (4040) - Female Memoji -->
+            <div class="interactive-card min-w-[340px] sm:min-w-[440px] max-w-[440px] flex-shrink-0 p-7 rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg flex flex-col justify-between reveal-base reveal-up">
+              <div>
+                <div class="flex items-center justify-between mb-5">
+                  <div class="flex items-center gap-2.5 bg-white px-3 py-1.5 rounded-xl shadow-sm">
+                    <span class="font-display font-black text-sm text-amber-600">4040</span>
+                    <span class="font-display font-extrabold text-xs text-slate-900 tracking-wider">FOUNDATION</span>
+                  </div>
+                  <span class="text-[11px] font-mono text-amber-300 bg-white/10 px-2.5 py-1 rounded font-semibold">Events &amp; Fundraising</span>
+                </div>
+                <p class="text-sm text-slate-100 leading-relaxed italic">
+                  &ldquo;His ability to collaborate effectively, pay attention to detail, and enhance audience participation made him a valuable member of our team during critical campaigns.&rdquo;
+                </p>
+              </div>
+              <div class="pt-5 mt-6 border-t border-white/15 flex items-center gap-3.5">
+                <!-- Illustrated Female Memoji -->
+                <div class="w-11 h-11 rounded-full bg-amber-100 border-2 border-amber-400 flex items-center justify-center text-xl shrink-0 shadow-sm">
+                  &#128105;&#127998;&#8205;&#128188;
+                </div>
+                <div>
+                  <h4 class="font-bold text-sm text-white">Esther Kalenzi</h4>
+                  <p class="text-xs text-amber-200">Founder &amp; Team Leader, 4040 Foundation</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ================= PAGE 2: DATA & BI (OPERATIONAL, VISUAL, GEEKY DNA) ================= -->
+    <div id="page-data-bi" class="page-view hidden">
+      <section class="py-16 md:py-20 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <!-- Geeky / Operational DNA Banner -->
+          <div class="p-6 rounded-3xl bg-slate-900 text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border border-slate-800 shadow-md reveal-base reveal-down">
+            <div class="flex items-center gap-3">
+              <span class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="font-mono text-xs uppercase tracking-wider text-emerald-400">DATA &amp; BI STACK TELEMETRY: ACTIVE</span>
+            </div>
+            <div class="font-mono text-xs text-slate-300 flex flex-wrap gap-4">
+              <span>SQL Queries: Optimized</span>
+              <span>DAX Models: Star-Schema</span>
+              <span>ETL Automation: 100% Refresh</span>
+            </div>
+          </div>
+
+          <div class="max-w-3xl reveal-base reveal-up">
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-lacoste-800 block mb-2">Operational Analytics &amp; Architecture</span>
+            <h1 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">Data Systems, Analytics &amp; Visualizations</h1>
+            <p class="text-slate-600 text-sm mt-3 leading-relaxed">
+              Transforming raw, unstructured business transactions into robust dimensional models, automated ETL workflows, and executive visual intelligence.
+            </p>
+          </div>
+
+          <!-- Systems & Tools for Data & BI -->
+          <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200 shadow-sm reveal-base reveal-up">
+            <h3 class="font-display font-bold text-lg text-slate-900 mb-4 flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-lacoste-800"></span>
+              Data &amp; BI Systems, Frameworks &amp; Languages
+            </h3>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-mono">
+              <div class="p-3.5 rounded-xl bg-white border border-slate-200">
+                <strong class="block text-slate-900 font-bold">Microsoft Fabric</strong>
+                <span class="text-slate-500">Lakehouse &amp; Semantic Models</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white border border-slate-200">
+                <strong class="block text-slate-900 font-bold">Power BI / DAX</strong>
+                <span class="text-slate-500">Executive Dashboards</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white border border-slate-200">
+                <strong class="block text-slate-900 font-bold">SQL (Advanced)</strong>
+                <span class="text-slate-500">Complex CTEs &amp; Windows</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white border border-slate-200">
+                <strong class="block text-slate-900 font-bold">Python</strong>
+                <span class="text-slate-500">Pandas, Automation &amp; APIs</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white border border-slate-200">
+                <strong class="block text-slate-900 font-bold">Tableau</strong>
+                <span class="text-slate-500">Public &amp; Clinical Analytics</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white border border-slate-200">
+                <strong class="block text-slate-900 font-bold">Excel</strong>
+                <span class="text-slate-500">VBA &amp; Financial Models</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white border border-slate-200">
+                <strong class="block text-slate-900 font-bold">Power Automate</strong>
+                <span class="text-slate-500">Cross-Platform Flows</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white border border-slate-200">
+                <strong class="block text-slate-900 font-bold">Git / GitHub</strong>
+                <span class="text-slate-500">Version Control</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Deep-Dive Case Studies -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- Project 1 -->
+            <div class="interactive-card p-8 rounded-3xl bg-[#fafbf9] border border-slate-200/90 shadow-sm space-y-6 reveal-base reveal-left">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold uppercase text-lacoste-800 bg-lacoste-100 px-2.5 py-1 rounded">Enterprise Operations Tool</span>
+                <span class="text-xs text-slate-400 font-mono">Novartis Reference</span>
+              </div>
+              <div>
+                <h2 class="font-display font-bold text-2xl text-slate-900 mb-2">Portfolio KPI &amp; ITOT Operations Suite</h2>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  Engineered automated tools combining custom-coded applications, Power Platform solutions, and cross-platform Power Automate workflows to monitor, plan, and govern daily operations and project deviations across capabilities.
+                </p>
+              </div>
+
+              <div class="space-y-4 text-xs border-t border-slate-200 pt-5">
+                <div>
+                  <span class="font-mono font-bold text-slate-900 uppercase tracking-wider block mb-1">01. Business Problem</span>
+                  <p class="text-slate-600">Siloed project tracking, manual operational reporting overhead, and delayed visibility into capability deviations for leadership.</p>
+                </div>
+                <div>
+                  <span class="font-mono font-bold text-slate-900 uppercase tracking-wider block mb-1">02. Approach &amp; Architecture</span>
+                  <p class="text-slate-600">Constructed centralized reporting logic, multi-tier automated flows, and customized front-end views with monthly filtering for leadership clarity.</p>
+                </div>
+                <div>
+                  <span class="font-mono font-bold text-slate-900 uppercase tracking-wider block mb-1">03. Tools &amp; Tech Stack</span>
+                  <p class="font-mono text-lacoste-800 font-medium">Power Platform, Power Automate, Custom Code Apps, Power BI, SQL</p>
+                </div>
+                <div>
+                  <span class="font-mono font-bold text-slate-900 uppercase tracking-wider block mb-1">04. Deliverables</span>
+                  <p class="text-slate-600">End-to-end ITOT Operations Dashboard, Portfolio KPI Monitoring Tool, validated reporting rules, stakeholder documentation.</p>
+                </div>
+                <div>
+                  <span class="font-mono font-bold text-slate-900 uppercase tracking-wider block mb-1">05. Business Impact</span>
+                  <p class="text-slate-600">Transformed fragmented daily tracking into a single decision-ready operational tool adopted by team leads and senior leadership.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="interactive-card p-8 rounded-3xl bg-[#fafbf9] border border-slate-200/90 shadow-sm space-y-6 reveal-base reveal-right">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold uppercase text-lacoste-800 bg-lacoste-100 px-2.5 py-1 rounded">Analytics &amp; People Data</span>
+                <span class="text-xs text-slate-400 font-mono">GWP Reference</span>
+              </div>
+              <div>
+                <h2 class="font-display font-bold text-2xl text-slate-900 mb-2">Candidate Selection &amp; Program Performance Engine</h2>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  Constructed a data-backed selection and performance analytics mechanism across global initiatives, justifying resource allocation and streamlining candidate evaluation.
+                </p>
+              </div>
+
+              <div class="space-y-4 text-xs border-t border-slate-200 pt-5">
+                <div>
+                  <span class="font-mono font-bold text-slate-900 uppercase tracking-wider block mb-1">01. Business Problem</span>
+                  <p class="text-slate-600">Need for objective data analytics to justify paid intern quotas, track performance benchmarks, and evaluate global program participants.</p>
+                </div>
+                <div>
+                  <span class="font-mono font-bold text-slate-900 uppercase tracking-wider block mb-1">02. Approach &amp; Architecture</span>
+                  <p class="text-slate-600">Engineered structured tracking schemas and analytical scoring criteria integrating administrative workflows with measurable KPIs.</p>
+                </div>
+                <div>
+                  <span class="font-mono font-bold text-slate-900 uppercase tracking-wider block mb-1">03. Tools &amp; Tech Stack</span>
+                  <p class="font-mono text-lacoste-800 font-medium">Data Analytics, Excel Modelling, Performance Dashboards, Structured Evaluation Schemas</p>
+                </div>
+                <div>
+                  <span class="font-mono font-bold text-slate-900 uppercase tracking-wider block mb-1">04. Deliverables</span>
+                  <p class="text-slate-600">Candidate analytics matrices, automated tracking templates, administrative review frameworks.</p>
+                </div>
+                <div>
+                  <span class="font-mono font-bold text-slate-900 uppercase tracking-wider block mb-1">05. Business Impact</span>
+                  <p class="text-slate-600">Provided data-driven justification for paid placements and increased operational efficiency across international cohort programs.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- ================= PAGE 3: AI GOVERNANCE (COMPLIANCE, RIGOR, REGULATORY DNA) ================= -->
+    <div id="page-ai-governance" class="page-view hidden">
+      <section class="py-16 md:py-20 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <!-- Regulatory / Compliance DNA Banner -->
+          <div class="p-6 rounded-3xl bg-lacoste-900 text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border border-lacoste-800 shadow-md reveal-base reveal-down">
+            <div class="flex items-center gap-3">
+              <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+              <span class="font-mono text-xs uppercase tracking-wider text-emerald-300">GOVERNANCE &amp; RISK STANDARD: AUDIT-READY</span>
+            </div>
+            <div class="font-mono text-xs text-emerald-100 flex flex-wrap gap-4">
+              <span>EU AI Act Compliant</span>
+              <span>NIST AI RMF 1.0 Mapped</span>
+              <span>ISO/IEC 42001 Guardrails</span>
+            </div>
+          </div>
+
+          <div class="max-w-3xl reveal-base reveal-up">
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-lacoste-800 block mb-2">Simulated Case Study &bull; Technical Architecture</span>
+            <h1 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">Enterprise Generative AI Assistant: Complete Governance Architecture</h1>
+            <p class="text-slate-600 text-sm mt-3 leading-relaxed">
+              A comprehensive governance framework for an internal Retrieval-Augmented Generation (RAG) assistant, demonstrating risk mapping, technical controls, and audit verification across the AI lifecycle.
+            </p>
+          </div>
+
+          <!-- Systems, Frameworks & Standards for AI Governance -->
+          <div class="p-8 rounded-3xl bg-[#edf6f1]/60 border border-lacoste-200 shadow-sm reveal-base reveal-up">
+            <h3 class="font-display font-bold text-lg text-slate-900 mb-4 flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-lacoste-800"></span>
+              AI Governance Frameworks, Regimes &amp; Guardrail Tooling
+            </h3>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-mono">
+              <div class="p-3.5 rounded-xl bg-white border border-lacoste-200">
+                <strong class="block text-slate-900 font-bold">EU AI Act</strong>
+                <span class="text-slate-500">Risk Tiers &amp; Transparency</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white border border-lacoste-200">
+                <strong class="block text-slate-900 font-bold">NIST AI RMF 1.0</strong>
+                <span class="text-slate-500">Govern, Map, Measure, Manage</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white border border-lacoste-200">
+                <strong class="block text-slate-900 font-bold">ISO/IEC 42001</strong>
+                <span class="text-slate-500">AI Management System</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white border border-lacoste-200">
+                <strong class="block text-slate-900 font-bold">GDPR Compliance</strong>
+                <span class="text-slate-500">Data Minimization &amp; Privacy</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white border border-lacoste-200">
+                <strong class="block text-slate-900 font-bold">TEVV Protocols</strong>
+                <span class="text-slate-500">Test, Evaluation, Verification</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white border border-lacoste-200">
+                <strong class="block text-slate-900 font-bold">Guardrail Scaffolding</strong>
+                <span class="text-slate-500">NeMo, Langfuse &amp; Custom Filters</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white border border-lacoste-200">
+                <strong class="block text-slate-900 font-bold">GRC Telemetry</strong>
+                <span class="text-slate-500">Audit Trails &amp; Model Cards</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white border border-lacoste-200">
+                <strong class="block text-slate-900 font-bold">Copilot Studio</strong>
+                <span class="text-slate-500">Low-Code Governed Agents</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scope & Classification -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-base reveal-up">
+            <div class="interactive-card p-6 rounded-2xl bg-[#fafbf9] border border-slate-200">
+              <span class="text-xs font-mono font-bold uppercase text-lacoste-800">System Context</span>
+              <h3 class="font-display font-bold text-lg text-slate-900 mt-1">Enterprise RAG Assistant</h3>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Internal employee tool indexing policies, ERP data, and technical documentation with role-based access.
+              </p>
+            </div>
+            <div class="interactive-card p-6 rounded-2xl bg-[#fafbf9] border border-slate-200">
+              <span class="text-xs font-mono font-bold uppercase text-lacoste-800">Risk Profile</span>
+              <h3 class="font-display font-bold text-lg text-slate-900 mt-1">Key Attack Surfaces</h3>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                PII/IP leakage, prompt injection attacks, ungrounded hallucination, and unauthorized knowledge indexing.
+              </p>
+            </div>
+            <div class="interactive-card p-6 rounded-2xl bg-[#fafbf9] border border-slate-200">
+              <span class="text-xs font-mono font-bold uppercase text-lacoste-800">Compliance Scope</span>
+              <h3 class="font-display font-bold text-lg text-slate-900 mt-1">Regulatory Mapping</h3>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Mapped against <strong>EU AI Act</strong>, <strong>NIST AI RMF 1.0</strong>, <strong>GDPR</strong>, and <strong>ISO/IEC 42001</strong>.
+              </p>
+            </div>
+          </div>
+
+          <!-- Technical Workflow Diagram -->
+          <div class="space-y-4 reveal-base reveal-up">
+            <h3 class="font-display font-bold text-xl text-slate-900">Technical Guardrail &amp; Lifecycle Flow</h3>
+            <div class="p-6 rounded-2xl bg-[#001e10] text-slate-100 overflow-x-auto shadow-inner">
+              <div class="min-w-[700px] flex items-center justify-between gap-3 text-center text-xs font-mono">
+                <div class="p-4 rounded-xl bg-lacoste-900/80 border border-lacoste-700 flex-1">
+                  <div class="text-emerald-400 font-bold mb-1">01. INGESTION</div>
+                  <div class="text-white font-semibold">User Query</div>
+                  <div class="text-[10px] text-slate-300 mt-1">Auth &amp; Role Check</div>
+                </div>
+                <div class="text-emerald-400">&rarr;</div>
+                <div class="p-4 rounded-xl bg-lacoste-800 border border-emerald-500/50 flex-1">
+                  <div class="text-emerald-300 font-bold mb-1">02. INPUT FILTERS</div>
+                  <div class="text-white font-semibold">PII &amp; Injection Mask</div>
+                  <div class="text-[10px] text-slate-300 mt-1">Jailbreak Heuristics</div>
+                </div>
+                <div class="text-emerald-400">&rarr;</div>
+                <div class="p-4 rounded-xl bg-lacoste-900/80 border border-lacoste-700 flex-1">
+                  <div class="text-emerald-400 font-bold mb-1">03. VECTOR RETRIEVAL</div>
+                  <div class="text-white font-semibold">ACL-Gated Index</div>
+                  <div class="text-[10px] text-slate-300 mt-1">Strict Doc Permissions</div>
+                </div>
+                <div class="text-emerald-400">&rarr;</div>
+                <div class="p-4 rounded-xl bg-lacoste-800 border border-emerald-500/50 flex-1">
+                  <div class="text-emerald-300 font-bold mb-1">04. POST-PROCESSING</div>
+                  <div class="text-white font-semibold">Groundedness Scoring</div>
+                  <div class="text-[10px] text-slate-300 mt-1">Hallucination Checks</div>
+                </div>
+                <div class="text-emerald-400">&rarr;</div>
+                <div class="p-4 rounded-xl bg-lacoste-900/80 border border-lacoste-700 flex-1">
+                  <div class="text-emerald-400 font-bold mb-1">05. OUTPUT &amp; LOG</div>
+                  <div class="text-white font-semibold">Citations &amp; Telemetry</div>
+                  <div class="text-[10px] text-slate-300 mt-1">GRC Audit Trail</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Download Deliverables -->
+          <div class="p-8 rounded-3xl bg-[#fafbf9] border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-6 reveal-base reveal-up">
+            <div>
+              <h3 class="font-display font-bold text-lg text-slate-900">Governance Deliverables &amp; Control Templates</h3>
+              <p class="text-xs text-slate-600 mt-1">Download verifiable simulation matrices created for enterprise AI governance audits.</p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <button onclick="downloadRiskRegisterCSV()" class="px-4 py-2.5 rounded-xl bg-lacoste-800 text-white font-medium text-xs hover:bg-lacoste-900 transition-colors flex items-center gap-2 shadow-sm">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                <span>Download Risk Register (.csv)</span>
+              </button>
+              <button onclick="downloadControlSpecMD()" class="px-4 py-2.5 rounded-xl bg-white text-slate-800 border border-slate-300 font-medium text-xs hover:bg-slate-50 transition-colors flex items-center gap-2 shadow-sm">
+                <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                <span>Download TEVV Protocol (.md)</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- ================= PAGE 4: ABOUT (PERSONALISED, FLAIR, DEGREES EMPHASIS) ================= -->
+    <div id="page-about" class="page-view hidden">
+      <section class="py-16 md:py-24 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+          
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            <div class="lg:col-span-7 space-y-6 reveal-base reveal-left">
+              
+              <!-- Location Marker Tag -->
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-wider bg-lacoste-50 text-lacoste-800 border border-lacoste-200">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Location: Europe &bull; Open to Global &amp; Remote Roles
+              </div>
+
+              <h1 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 tracking-tight leading-tight">
+                Engineering with Analytics.<br>
+                <span class="text-lacoste-800">Governing with Legal Acumen.</span>
+              </h1>
+
+              <div class="text-slate-600 space-y-4 text-base leading-relaxed">
+                <p>
+                  I am a <strong>Data &amp; BI Specialist at my core</strong>: modelling, analytics, dashboards, and reporting that turn messy business data into actionable operational clarity. On top of that foundation, I build automation and AI-enabled solutions that remove manual work and improve operational efficiency.
+                </p>
+                <p>
+                  Governance is how I make sure those solutions are trusted, adopted, and compliant.
+                </p>
+              </div>
+
+              <!-- ================= SECTION: HIGHLIGHTED ACADEMIC DEGREES (PREMIER EMPHASIS) ================= -->
+              <div class="p-7 rounded-3xl bg-gradient-to-br from-[#fafbf9] to-lacoste-50/60 border-2 border-lacoste-200 shadow-sm space-y-4 mt-8">
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-lacoste-800 block">Academic Pedigree</span>
+                <h3 class="font-display font-black text-xl text-slate-900">University Degrees</h3>
+                
+                <div class="space-y-4 pt-1">
+                  <!-- Degree 1: LLB -->
+                  <div class="flex items-start gap-3.5 p-4 rounded-2xl bg-white border border-lacoste-200 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-lacoste-800 text-white flex items-center justify-center shrink-0 font-display font-extrabold text-sm shadow">
+                      LLB
+                    </div>
+                    <div>
+                      <h4 class="font-display font-bold text-base text-slate-900">Bachelor of Laws (LLB)</h4>
+                      <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                        Taught me to read, interpret, and apply complex legal rules, grounding arguments in statutory interpretation, compliance, accountability, and governance.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Degree 2: MSc -->
+                  <div class="flex items-start gap-3.5 p-4 rounded-2xl bg-white border border-lacoste-200 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center shrink-0 font-display font-extrabold text-sm shadow">
+                      MSc
+                    </div>
+                    <div>
+                      <h4 class="font-display font-bold text-base text-slate-900">Master of Science in Management</h4>
+                      <p class="text-xs text-slate-500 font-mono">University of Ljubljana, School of Economics and Business</p>
+                      <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                        Provided broad strategic business acumen, portfolio prioritization, and executive stakeholder alignment.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ================= SECTION: PROFESSIONAL CERTIFICATIONS ================= -->
+              <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 block">Verified Accreditations</span>
+                <h3 class="font-display font-bold text-lg text-slate-900">Professional Certifications</h3>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                  <!-- AIGP -->
+                  <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                    <span class="text-[10px] font-mono font-bold uppercase text-lacoste-800 block">IAPP Certified</span>
+                    <strong class="text-xs font-bold text-slate-900 block mt-0.5">AI Governance Professional (AIGP)</strong>
+                    <span class="text-[11px] text-slate-500 block mt-1">Lifecycle, TEVV, NIST AI RMF</span>
+                  </div>
+
+                  <!-- PL-300 -->
+                  <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                    <span class="text-[10px] font-mono font-bold uppercase text-amber-700 block">Microsoft Certified</span>
+                    <strong class="text-xs font-bold text-slate-900 block mt-0.5">Power BI Data Analyst (PL-300)</strong>
+                    <span class="text-[11px] text-slate-500 block mt-1">Associate Data Modeling &amp; DAX</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Profile Card on About Page -->
+            <div class="lg:col-span-5 flex justify-center reveal-base reveal-right">
+              <div class="lacoste-card-shadow max-w-[360px] w-full">
+                <div class="lacoste-card-inner p-4 sm:p-5 border border-slate-200/80 shadow-2xl">
+                  
+                  <div class="relative w-full aspect-[4/4.5] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-inner group">
+                    <img id="profile-img-about" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Portrait" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                    
+                    <label class="absolute bottom-3 right-3 cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-lacoste-900 text-xs font-semibold shadow-md hover:bg-white hover:scale-105 transition-all">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                      <span>Change Photo</span>
+                      <input type="file" accept="image/*" class="hidden" onchange="handlePhotoUpload(event)">
+                    </label>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ================= SECTION: PREVIOUS PROFESSIONAL WORK EXPERIENCE ================= -->
+          <div class="p-8 sm:p-10 rounded-3xl bg-[#fafbf9] border border-slate-200 shadow-sm space-y-6 reveal-base reveal-up">
+            <div>
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-lacoste-800 block mb-1">Career History</span>
+              <h3 class="font-display font-extrabold text-2xl text-slate-900">Previous Professional Work Experience</h3>
+            </div>
+
+            <div class="space-y-6 border-l-2 border-lacoste-200 pl-6 my-4">
+              
+              <!-- Role 1: Novartis -->
+              <div class="relative">
+                <span class="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-lacoste-800 border-2 border-white"></span>
+                <span class="text-xs font-mono text-lacoste-800 font-bold uppercase">Novartis &bull; DD&amp;IT ITOT Operations</span>
+                <h4 class="font-display font-bold text-base text-slate-900 mt-0.5">Operations Analytics, Process Automation &amp; Portfolio KPI Delivery</h4>
+                <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                  Developed the portfolio KPI dashboard and end-to-end ITOT Operations Dashboard, translating operational needs into digital outputs using Power Platform, Power Automate, and custom-coded app workflows. Supported portfolio prioritization and clarified stakeholder reporting logic.
+                </p>
+              </div>
+
+              <!-- Role 2: Global Water Partnership -->
+              <div class="relative">
+                <span class="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-slate-400 border-2 border-white"></span>
+                <span class="text-xs font-mono text-slate-500 font-bold uppercase">Global Water Partnership (GWP)</span>
+                <h4 class="font-display font-bold text-base text-slate-900 mt-0.5">Data Analytics &amp; Program Operations</h4>
+                <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                  Engineered data analytics processes across international internship initiatives and youth climate programs, utilizing structured candidate evaluation models to track performance benchmarks and justify cohort placement quotas.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ================= SECTION: PERSONAL INTERESTS & HOBBIES ================= -->
+          <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200 shadow-sm space-y-6 reveal-base reveal-up">
+            <div>
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-lacoste-800 block mb-1">Off-Screen</span>
+              <h3 class="font-display font-extrabold text-2xl text-slate-900">Interests &amp; Hobbies</h3>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5 text-center text-xs">
+              
+              <div class="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-lacoste-400 transition-colors">
+                <span class="text-2xl block mb-2">&#9917;</span>
+                <strong class="block text-slate-900 font-bold">Football</strong>
+                <span class="text-[11px] text-red-600 font-semibold block mt-0.5">Manchester United</span>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-lacoste-400 transition-colors">
+                <span class="text-2xl block mb-2">&#127950;&#65039;</span>
+                <strong class="block text-slate-900 font-bold">Formula 1</strong>
+                <span class="text-[11px] text-blue-700 font-semibold block mt-0.5">Red Bull Racing</span>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-lacoste-400 transition-colors">
+                <span class="text-2xl block mb-2">&#127934;</span>
+                <strong class="block text-slate-900 font-bold">Padel</strong>
+                <span class="text-[11px] text-slate-500 block mt-0.5">Court Strategy</span>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-lacoste-400 transition-colors">
+                <span class="text-2xl block mb-2">&#127952;</span>
+                <strong class="block text-slate-900 font-bold">Volleyball</strong>
+                <span class="text-[11px] text-slate-500 block mt-0.5">Team Dynamics</span>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-lacoste-400 transition-colors">
+                <span class="text-2xl block mb-2">&#9822;</span>
+                <strong class="block text-slate-900 font-bold">Boardgames</strong>
+                <span class="text-[11px] text-slate-500 block mt-0.5">Logic &amp; Tactics</span>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-lacoste-400 transition-colors">
+                <span class="text-2xl block mb-2">&#129406;</span>
+                <strong class="block text-slate-900 font-bold">Hiking</strong>
+                <span class="text-[11px] text-slate-500 block mt-0.5">European Trails</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- ================= POPUP MODAL: GET IN TOUCH ================= -->
+  <div id="contact-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm hidden transition-opacity">
+    <div class="relative w-full max-w-md bg-white rounded-3xl border border-slate-200 shadow-2xl p-6 sm:p-8 transform transition-all">
+      
+      <button onclick="closeContactModal()" class="absolute top-5 right-5 p-2 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 rounded-2xl bg-lacoste-50 text-lacoste-800 flex items-center justify-center mx-auto mb-3 font-bold">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+        </div>
+        <h3 class="font-display font-extrabold text-2xl text-slate-900">Get in Touch</h3>
+        <p class="text-xs text-slate-600 mt-1">Choose how you would like to connect:</p>
+      </div>
+
+      <div class="space-y-3">
+        
+        <!-- Choice 1: Email to jethromi@icloud.com -->
+        <a href="mailto:jethromi@icloud.com" class="flex items-center gap-4 p-4 rounded-2xl border border-slate-200 hover:border-[#007AFF] hover:bg-blue-50/40 transition-all group">
+          <div class="w-11 h-11 rounded-xl bg-blue-100 flex items-center justify-center shrink-0">
+            <svg class="w-6 h-6 text-[#007AFF]" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div class="text-left flex-1 min-w-0">
+            <span class="block text-sm font-bold text-slate-900 group-hover:text-[#007AFF] transition-colors">Send an Email</span>
+            <span class="block text-xs text-slate-500 font-mono truncate">jethromi@icloud.com</span>
+          </div>
+          <span class="text-xs text-slate-400 font-bold">&rarr;</span>
+        </a>
+
+        <!-- Choice 2: LinkedIn Profile -->
+        <a href="https://www.linkedin.com/in/jethromuwanguzi/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 rounded-2xl border border-slate-200 hover:border-[#0A66C2] hover:bg-sky-50/40 transition-all group">
+          <div class="w-11 h-11 rounded-xl bg-[#0A66C2]/10 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 fill-[#0A66C2]" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.738-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </div>
+          <div class="text-left flex-1 min-w-0">
+            <span class="block text-sm font-bold text-slate-900 group-hover:text-[#0A66C2] transition-colors">Connect on LinkedIn</span>
+            <span class="block text-xs text-slate-500 font-mono truncate">linkedin.com/in/jethromuwanguzi/</span>
+          </div>
+          <span class="text-xs text-slate-400 font-bold">&rarr;</span>
+        </a>
+
+      </div>
+
+      <div class="pt-5 mt-5 border-t border-slate-100 flex items-center justify-between text-xs">
+        <span class="text-slate-500">Need the address quickly?</span>
+        <button onclick="copyEmailToClipboard()" id="copy-email-btn" class="font-mono text-lacoste-800 font-semibold hover:underline">
+          Copy Email Address
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= CLEAN CENTERED FOOTER ================= -->
+  <footer class="bg-white py-8 border-t border-slate-200 text-xs text-slate-500 text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span>Jethro M &bull; Portfolio &copy; 2026</span>
+    </div>
+  </footer>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script>
+    // 1. Tabbed Navigation Router
+    function navigateTo(pageId) {
+      document.querySelectorAll('.page-view').forEach(view => view.classList.add('hidden'));
+      const activePage = document.getElementById('page-' + pageId);
+      if (activePage) {
+        activePage.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('bg-lacoste-800', 'text-white');
+        btn.classList.add('text-slate-600');
+      });
+      const activeNav = document.getElementById('nav-' + pageId);
+      if (activeNav) {
+        activeNav.classList.add('bg-lacoste-800', 'text-white');
+        activeNav.classList.remove('text-slate-600');
+      }
+
+      setTimeout(initScrollReveal, 80);
+    }
+
+    // 2. Carousel Scroll Track
+    function scrollCarousel(direction) {
+      const track = document.getElementById('recommendations-track');
+      if (track) {
+        track.scrollBy({ left: direction * 440, behavior: 'smooth' });
+      }
+    }
+
+    // 3. Modal Controls
+    function openContactModal() {
+      document.getElementById('contact-modal').classList.remove('hidden');
+    }
+    function closeContactModal() {
+      document.getElementById('contact-modal').classList.add('hidden');
+    }
+
+    // 4. Copy Email
+    function copyEmailToClipboard() {
+      navigator.clipboard.writeText('jethromi@icloud.com').then(() => {
+        const btn = document.getElementById('copy-email-btn');
+        btn.innerText = 'Copied to clipboard!';
+        setTimeout(() => { btn.innerText = 'Copy Email Address'; }, 2200);
+      });
+    }
+
+    // 5. Avatar Upload Sync (Header + Home + About)
+    function handlePhotoUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const dataUrl = evt.target.result;
+        syncImages(dataUrl);
+        try {
+          localStorage.setItem('jm_profile_photo', dataUrl);
+        } catch(err) {
+          console.warn('Image too large for local cache');
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function syncImages(url) {
+      const headerImg = document.getElementById('header-avatar');
+      const imgHome = document.getElementById('profile-img-home');
+      const imgAbout = document.getElementById('profile-img-about');
+      if (headerImg) headerImg.src = url;
+      if (imgHome) imgHome.src = url;
+      if (imgAbout) imgAbout.src = url;
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedPhoto = localStorage.getItem('jm_profile_photo');
+      if (savedPhoto) syncImages(savedPhoto);
+      initScrollReveal();
+      initCursorFollower();
+    });
+
+    // 6. Directional Smooth Scroll Observer (Flourished In & Out Transitions)
+    function initScrollReveal() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          } else {
+            entry.target.classList.remove('revealed');
+          }
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      document.querySelectorAll('.reveal-base').forEach(el => observer.observe(el));
+    }
+
+    // 7. Ambient Cursor Glow Follower & F1 Car Indicator
+    function initCursorFollower() {
+      if (window.matchMedia('(pointer: fine)').matches) {
+        const follower = document.getElementById('cursor-follower');
+        const f1 = document.getElementById('cursor-f1');
+        if (!follower || !f1) return;
+        
+        follower.style.display = 'block';
+        f1.style.display = 'block';
+
+        let mouseX = 0, mouseY = 0;
+        let posX = 0, posY = 0;
+
+        window.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          f1.style.left = mouseX + 'px';
+          f1.style.top = mouseY + 'px';
+        });
+
+        function animateFollower() {
+          posX += (mouseX - posX) * 0.12;
+          posY += (mouseY - posY) * 0.12;
+          follower.style.left = posX + 'px';
+          follower.style.top = posY + 'px';
+          requestAnimationFrame(animateFollower);
+        }
+        animateFollower();
+      }
+    }
+
+    // 8. Dynamic Governance Downloads
+    function downloadRiskRegisterCSV() {
+      const headers = "Risk_ID,Category,Risk_Description,Likelihood,Impact,Inherent_Risk,EU_AI_Act_Article,NIST_Subcategory,Safeguard_Control,Residual_Risk\n";
+      const rows = [
+        'R-01,Data Privacy,"PII leakage in retrieved vector context (GDPR)",Possible,High,High,"Art. 10 & 14",MEASURE 2.1,"Pre-retrieval Regex & NER sanitization; ACL gating",Low',
+        'R-02,Security,"Indirect Prompt Injection via internal PDFs",Likely,High,Critical,"Art. 15",GOVERN 1.2,"Multi-tier input classification; boundary delimiter isolation",Medium',
+        'R-03,Accuracy,"Ungrounded model hallucination in policy advice",Likely,Medium,High,"Art. 13",MANAGE 2.3,"Post-generation groundedness score < 0.85 triggers fallback",Low',
+        'R-04,Access Control,"User queries unauthorized departmental SOPs",Unlikely,High,Medium,"Art. 10",MAP 1.5,"Strict user identity token passed to Vector index retrieval",Low',
+        'R-05,Accountability,"Lack of telemetry for non-compliant outputs",Possible,Medium,Medium,"Art. 12",GOVERN 4.1,"Immutable audit logging to lakehouse with human review queue",Low'
+      ].join("\n");
+
+      const blob = new Blob([headers + rows], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "Enterprise_GenAI_Risk_Register_Template.csv";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    function downloadControlSpecMD() {
+      const content = `# Enterprise Generative AI Assistant: TEVV Protocol & Governance Specification
+**Author:** Jethro M (IAPP Certified AIGP)
+**Standard Alignment:** NIST AI RMF 1.0, EU AI Act, ISO/IEC 42001
+
+## 1. System Classification & Scope
+- **Architecture:** Enterprise RAG (Retrieval-Augmented Generation)
+- **Deployment:** Internal Corporate Knowledge Repository
+- **Criticality:** Decision Support & Employee Productivity
+
+## 2. Guardrail Specifications
+### 2.1 Pre-Inference Safeguards
+- Input sanitization against Prompt Injection & Jailbreak heuristics.
+- Automated Named Entity Recognition (NER) to obfuscate personal data before embedding.
+
+### 2.2 In-Retrieval Access Controls
+- Dynamic vector filter evaluation enforcing Active Directory / Entra ID document permissions.
+
+### 2.3 Post-Inference Verification
+- Hallucination Threshold: Evaluation of answer groundedness against retrieved context (minimum score: 0.85).
+- Output toxicity and bias evaluation before UI rendering.
+
+## 3. Human Oversight & Incident Handling
+- Explicit feedback buttons (thumbs up/down) routing flagged outputs to human-in-the-loop audit queues.
+- Automated kill-switch mechanism capable of isolating specific compromised knowledge-base vectors.
+`;
+
+      const blob = new Blob([content], { type: "text/markdown;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "GenAI_Governance_TEVV_Specification.md";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  </script>
+
+</body>
+</html>
